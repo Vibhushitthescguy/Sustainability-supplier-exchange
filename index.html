@@ -3,324 +3,353 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Sustainable Supplier Exchange</title>
+<title>The Sustainable Supplier Exchange | VMC Consulting</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --navy: #051C2C;
-  --navy-mid: #0A2540;
-  --navy-light: #0F3052;
-  --white: #FFFFFF;
-  --off-white: #F5F7FA;
-  --cream: #FAFBFD;
-  --dark: #051C2C;
-  --mid: #3D5A73;
-  --light: #8A9BB0;
-  --faint: #C1CDD8;
-  --border: #E4E9F0;
-  --emerald: #00A87E;
-  --emerald-bg: #E8F8F3;
-  --red: #D62839;
-  --red-bg: #FDF0F0;
-  --amber: #D4930D;
-  --amber-bg: #FEF8E8;
-  --blue: #1A6BF0;
-  --blue-bg: #EDF4FE;
-  --gold: #B8941F;
-  --gold-rich: #D4A912;
-  --gold-bg: #FBF6E8;
-  --purple: #7C3AED;
-  --shadow-sm: 0 1px 3px rgba(5,28,44,0.05);
-  --shadow-md: 0 4px 20px rgba(5,28,44,0.07);
-  --shadow-lg: 0 12px 48px rgba(5,28,44,0.1);
-  --shadow-xl: 0 32px 80px rgba(5,28,44,0.15);
-  --r: 14px;
-  --r-sm: 8px;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Outfit',sans-serif;background:var(--off-white);color:var(--dark);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
-::selection{background:var(--emerald);color:#fff;}
+:root{--navy:#051C2C;--navy-mid:#0A2540;--navy-light:#0F3052;--white:#FFFFFF;--off-white:#F5F7FA;--cream:#FAFBFD;--dark:#051C2C;--mid:#3D5A73;--light:#8A9BB0;--faint:#C1CDD8;--border:#E4E9F0;--vmc:#3DD8C0;--vmc-bright:#4CE8D0;--vmc-dim:#2BC4AC;--emerald:#3DD8C0;--emerald-bg:#E8FAF7;--red:#D62839;--red-bg:#FDF0F0;--amber:#D4930D;--amber-bg:#FEF8E8;--blue:#1A6BF0;--blue-bg:#EDF4FE;--gold:#B8941F;--gold-rich:#D4A912;--gold-bg:#FBF6E8;--purple:#7C3AED;--shadow-sm:0 1px 3px rgba(5,28,44,.05);--shadow-md:0 4px 20px rgba(5,28,44,.07);--shadow-lg:0 12px 48px rgba(5,28,44,.1);--shadow-xl:0 32px 80px rgba(5,28,44,.15);--r:14px;--r-sm:8px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:var(--off-white);color:var(--dark);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--emerald);color:#fff}
+.app{position:relative}
 
-/* ══════════ TICKER TAPE ══════════ */
-.ticker-wrap{background:var(--navy);overflow:hidden;height:36px;display:none;position:relative;z-index:101;}
-.ticker-wrap.active{display:block;}
-.ticker{display:flex;animation:tickerScroll 30s linear infinite;white-space:nowrap;height:36px;align-items:center;}
+/* ══════════ TICKER ══════════ */
+.ticker-wrap{background:var(--navy);overflow:hidden;height:36px;display:none;position:relative;z-index:101}
+.ticker-wrap.active{display:block}
+.ticker{display:flex;animation:tickerScroll 30s linear infinite;white-space:nowrap;height:36px;align-items:center}
 @keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.ticker-item{display:inline-flex;align-items:center;gap:6px;padding:0 24px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:rgba(255,255,255,0.6);}
-.ticker-item .t-name{color:rgba(255,255,255,0.9);font-weight:600;}
-.ticker-item .t-up{color:#34D399;}
-.ticker-item .t-down{color:#F87171;}
-.ticker-item .t-sep{color:rgba(255,255,255,0.15);margin:0 4px;}
+.ticker-item{display:inline-flex;align-items:center;gap:6px;padding:0 24px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:rgba(255,255,255,.6)}
+.ticker-item .t-name{color:rgba(255,255,255,.9);font-weight:600}
+.ticker-item .t-up{color:#34D399}
+.ticker-item .t-down{color:#F87171}
+.ticker-item .t-sep{color:rgba(255,255,255,.15);margin:0 4px}
 
 /* ══════════ HEADER ══════════ */
-.header{padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;background:var(--navy);position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,0.06);}
-.h-left{display:flex;align-items:center;gap:16px;}
-.h-bar{width:3px;height:24px;background:var(--emerald);border-radius:2px;}
-.h-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:#fff;letter-spacing:-0.3px;}
-.h-sub{font-size:10px;font-weight:400;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:2px;margin-top:1px;}
-.h-right{display:flex;align-items:center;gap:12px;}
-.h-badge{padding:5px 14px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:0.5px;}
-.h-round{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.08);}
-.h-coin{background:rgba(184,148,31,0.15);color:var(--gold-rich);border:1px solid rgba(184,148,31,0.25);font-family:'JetBrains Mono',monospace;}
-.h-sound{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .2s;}
-.h-sound:hover{background:rgba(255,255,255,0.12);color:#fff;}
+.header{padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;background:var(--navy);position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,.06)}
+.h-left{display:flex;align-items:center;gap:16px}
+.h-bar{width:3px;height:24px;background:var(--vmc);border-radius:2px}
+.h-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:#fff;letter-spacing:-.3px}
+.h-sub{font-size:10px;font-weight:400;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:2px;margin-top:1px}
+.h-right{display:flex;align-items:center;gap:12px}
+.h-badge{padding:5px 14px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:.5px}
+.h-round{background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.08)}
+.h-coin{background:rgba(184,148,31,.15);color:var(--gold-rich);border:1px solid rgba(184,148,31,.25);font-family:'JetBrains Mono',monospace}
+.h-sound{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.5);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.h-sound:hover{background:rgba(255,255,255,.12);color:#fff}
 
 /* ══════════ SCREENS ══════════ */
-.screen{display:none;}.screen.active{display:block;}
+.screen{display:none}.screen.active{display:block}
 
 /* ══════════ SETUP ══════════ */
-.setup-wrap{min-height:calc(100vh - 64px);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-.setup-bg{position:absolute;inset:0;background:linear-gradient(160deg,#051C2C 0%,#0A2540 40%,#0D3558 100%);}
-.setup-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 900px 700px at 15% 85%,rgba(0,168,126,0.07),transparent 70%),radial-gradient(ellipse 700px 500px at 85% 15%,rgba(26,107,240,0.05),transparent 70%);}
-.setup-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:80px 80px;}
-/* Floating orbs */
-.orb{position:absolute;border-radius:50%;filter:blur(80px);animation:orbFloat 20s ease-in-out infinite;}
-.orb-1{width:300px;height:300px;background:rgba(0,168,126,0.08);top:10%;left:5%;animation-delay:0s;}
-.orb-2{width:250px;height:250px;background:rgba(26,107,240,0.06);bottom:15%;right:10%;animation-delay:-7s;}
-.orb-3{width:200px;height:200px;background:rgba(184,148,31,0.05);top:50%;right:30%;animation-delay:-14s;}
+.setup-wrap{min-height:calc(100vh - 64px);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.setup-bg{position:absolute;inset:0;background:linear-gradient(160deg,#051C2C 0%,#0A2540 40%,#0D3558 100%)}
+.setup-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 900px 700px at 15% 85%,rgba(61,216,192,.07),transparent 70%),radial-gradient(ellipse 700px 500px at 85% 15%,rgba(26,107,240,.05),transparent 70%)}
+.setup-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:80px 80px}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);animation:orbFloat 20s ease-in-out infinite}
+.orb-1{width:300px;height:300px;background:rgba(61,216,192,.08);top:10%;left:5%;animation-delay:0s}
+.orb-2{width:250px;height:250px;background:rgba(26,107,240,.06);bottom:15%;right:10%;animation-delay:-7s}
+.orb-3{width:200px;height:200px;background:rgba(184,148,31,.05);top:50%;right:30%;animation-delay:-14s}
 @keyframes orbFloat{0%,100%{transform:translate(0,0)}33%{transform:translate(30px,-20px)}66%{transform:translate(-20px,30px)}}
-
-.setup-card{position:relative;z-index:2;max-width:560px;width:90%;background:#fff;border-radius:20px;padding:52px 44px;box-shadow:0 60px 120px rgba(0,0,0,0.3);animation:cardIn .8s cubic-bezier(.16,1,.3,1);}
+.setup-card{position:relative;z-index:2;max-width:560px;width:90%;background:#fff;border-radius:20px;padding:52px 44px;box-shadow:0 60px 120px rgba(0,0,0,.3);animation:cardIn .8s cubic-bezier(.16,1,.3,1)}
 @keyframes cardIn{from{opacity:0;transform:translateY(50px) scale(.93)}to{opacity:1;transform:translateY(0) scale(1)}}
-.s-icon{width:52px;height:52px;background:var(--emerald);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:24px;box-shadow:0 8px 24px rgba(0,168,126,.25);}
-.setup-card h2{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--navy);letter-spacing:-.5px;line-height:1.15;margin-bottom:10px;}
-.setup-card .sub{font-size:14px;color:var(--light);line-height:1.7;font-weight:300;margin-bottom:32px;}
-.fg{margin-bottom:22px;}
-.fl{display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--light);margin-bottom:7px;}
-.fi,.fs{width:100%;padding:13px 16px;background:var(--off-white);border:1.5px solid var(--border);border-radius:var(--r-sm);font-family:'Outfit',sans-serif;font-size:14px;color:var(--dark);transition:all .2s;appearance:none;}
-.fs{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='%238A9BB0'%3E%3Cpath d='M0 0l5 6 5-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;}
-.fi:focus,.fs:focus{outline:none;border-color:var(--emerald);box-shadow:0 0 0 4px rgba(0,168,126,.1);}
-.tl{display:flex;flex-direction:column;gap:7px;}
-.tr{display:flex;gap:7px;}
-.tr input{flex:1;}
-.tr .rx{width:40px;height:40px;background:var(--red-bg);border:1.5px solid rgba(214,40,57,.12);border-radius:var(--r-sm);color:var(--red);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .2s;}
-.tr .rx:hover{background:rgba(214,40,57,.15);border-color:var(--red);}
-.at{width:100%;padding:11px;background:none;border:1.5px dashed var(--border);border-radius:var(--r-sm);color:var(--light);cursor:pointer;font-family:'Outfit',sans-serif;font-size:13px;transition:all .2s;margin-top:7px;}
-.at:hover{border-color:var(--emerald);color:var(--emerald);}
+.s-icon{width:52px;height:52px;background:var(--vmc);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:24px;box-shadow:0 8px 24px rgba(61,216,192,.25)}
+.setup-card h2{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--navy);letter-spacing:-.5px;line-height:1.15;margin-bottom:10px}
+.setup-card .sub{font-size:14px;color:var(--light);line-height:1.7;font-weight:300;margin-bottom:32px}
+.fg{margin-bottom:22px}
+.fl{display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--light);margin-bottom:7px}
+.fi,.fs{width:100%;padding:13px 16px;background:var(--off-white);border:1.5px solid var(--border);border-radius:var(--r-sm);font-family:'Outfit',sans-serif;font-size:14px;color:var(--dark);transition:all .2s;appearance:none}
+.fs{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='%238A9BB0'%3E%3Cpath d='M0 0l5 6 5-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.fi:focus,.fs:focus{outline:none;border-color:var(--emerald);box-shadow:0 0 0 4px rgba(0,168,126,.1)}
+.tl{display:flex;flex-direction:column;gap:7px}
+.tr{display:flex;gap:7px}
+.tr input{flex:1}
+.tr .rx{width:40px;height:40px;background:var(--red-bg);border:1.5px solid rgba(214,40,57,.12);border-radius:var(--r-sm);color:var(--red);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.tr .rx:hover{background:rgba(214,40,57,.15);border-color:var(--red)}
+.at{width:100%;padding:11px;background:none;border:1.5px dashed var(--border);border-radius:var(--r-sm);color:var(--light);cursor:pointer;font-family:'Outfit',sans-serif;font-size:13px;transition:all .2s;margin-top:7px}
+.at:hover{border-color:var(--emerald);color:var(--emerald)}
 
 /* ══════════ BUTTONS ══════════ */
-.btn{padding:13px 26px;border-radius:var(--r-sm);font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .25s cubic-bezier(.16,1,.3,1);border:none;display:inline-flex;align-items:center;gap:8px;letter-spacing:.3px;position:relative;overflow:hidden;}
-.btn:active{transform:scale(.97)!important;}
-.btn-navy{background:var(--navy);color:#fff;box-shadow:0 4px 16px rgba(5,28,44,.2);}
-.btn-navy:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(5,28,44,.3);}
-.btn-em{background:var(--emerald);color:#fff;box-shadow:0 4px 16px rgba(0,168,126,.25);}
-.btn-em:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,168,126,.35);}
-.btn-out{background:#fff;border:1.5px solid var(--border);color:var(--dark);}
-.btn-out:hover{border-color:var(--navy);background:var(--off-white);}
-.btn-gold{background:linear-gradient(135deg,#B8941F,#D4A912);color:#fff;box-shadow:0 4px 16px rgba(184,148,31,.3);}
-.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(184,148,31,.4);}
-.btn-block{width:100%;justify-content:center;}
-.btn-lg{padding:16px 32px;font-size:15px;border-radius:10px;}
-.btn:disabled{opacity:.3;cursor:not-allowed;transform:none!important;}
+.btn{padding:13px 26px;border-radius:var(--r-sm);font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .25s cubic-bezier(.16,1,.3,1);border:none;display:inline-flex;align-items:center;gap:8px;letter-spacing:.3px;position:relative;overflow:hidden}
+.btn:active{transform:scale(.97)!important}
+.btn-navy{background:var(--navy);color:#fff;box-shadow:0 4px 16px rgba(5,28,44,.2)}
+.btn-navy:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(5,28,44,.3)}
+.btn-em{background:var(--vmc);color:#fff;box-shadow:0 4px 16px rgba(61,216,192,.25)}
+.btn-em:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(61,216,192,.35)}
+.btn-out{background:#fff;border:1.5px solid var(--border);color:var(--dark)}
+.btn-out:hover{border-color:var(--navy);background:var(--off-white)}
+.btn-gold{background:linear-gradient(135deg,#B8941F,#D4A912);color:#fff;box-shadow:0 4px 16px rgba(184,148,31,.3)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(184,148,31,.4)}
+.btn-amber{background:var(--amber);color:#fff;box-shadow:0 4px 16px rgba(212,147,13,.25)}
+.btn-amber:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(212,147,13,.35)}
+.btn-block{width:100%;justify-content:center}
+.btn-lg{padding:16px 32px;font-size:15px;border-radius:10px}
+.btn:disabled{opacity:.3;cursor:not-allowed;transform:none!important}
 
 /* ══════════ GAME LAYOUT ══════════ */
-.game-layout{display:grid;grid-template-columns:1fr 370px;min-height:calc(100vh - 100px);}
-.main{padding:28px 36px;overflow-y:auto;max-height:calc(100vh - 100px);}
-.side{background:#fff;border-left:1px solid var(--border);padding:24px;overflow-y:auto;max-height:calc(100vh - 100px);}
+.game-layout{display:grid;grid-template-columns:1fr 370px;min-height:calc(100vh - 100px)}
+.main{padding:28px 36px;overflow-y:auto;max-height:calc(100vh - 100px)}
+.side{background:#fff;border-left:1px solid var(--border);padding:24px;overflow-y:auto;max-height:calc(100vh - 100px)}
 
-/* ══════════ TEAM TABS ══════════ */
-.tabs{display:flex;gap:6px;margin-bottom:24px;}
-.tab{padding:9px 22px;border-radius:100px;font-size:13px;font-weight:500;cursor:pointer;background:#fff;border:1.5px solid var(--border);color:var(--mid);transition:all .25s;}
-.tab.on{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 4px 16px rgba(5,28,44,.18);}
-.tab:hover:not(.on){border-color:var(--navy);color:var(--navy);}
+/* ══════════ TURN BANNER ══════════ */
+.turn-banner{background:linear-gradient(135deg,var(--navy),var(--navy-mid));border-radius:var(--r);padding:20px 28px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;color:#fff;box-shadow:var(--shadow-md);animation:bannerIn .4s cubic-bezier(.16,1,.3,1)}
+@keyframes bannerIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+.tb-left{display:flex;align-items:center;gap:16px}
+.tb-avatar{width:48px;height:48px;border-radius:12px;background:var(--vmc);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff;font-family:'Outfit',sans-serif;box-shadow:0 4px 16px rgba(61,216,192,.3)}
+.tb-info{}
+.tb-team{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;letter-spacing:-.3px}
+.tb-detail{font-size:12px;color:rgba(255,255,255,.5);font-weight:300;margin-top:2px}
+.tb-detail strong{color:var(--gold-rich);font-weight:600}
+.tb-right{display:flex;gap:10px;align-items:center}
+.team-progress{display:flex;gap:4px;align-items:center}
+.tp-dot{width:28px;height:6px;border-radius:3px;background:rgba(255,255,255,.12);transition:all .3s}
+.tp-dot.done{background:var(--emerald)}
+.tp-dot.active{background:var(--gold-rich);box-shadow:0 0 8px rgba(212,169,18,.4)}
+
+/* ══════════ TEAM TABS (read-only indicators) ══════════ */
+.tabs{display:flex;gap:6px;margin-bottom:20px}
+.tab{padding:8px 18px;border-radius:100px;font-size:12px;font-weight:500;background:#fff;border:1.5px solid var(--border);color:var(--faint);transition:all .25s}
+.tab.on{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 4px 12px rgba(5,28,44,.15)}
+.tab.completed-tab{background:var(--emerald-bg);color:var(--emerald);border-color:rgba(0,168,126,.2)}
+.tab.waiting{opacity:.5}
 
 /* ══════════ ACTION BAR ══════════ */
-.abar{display:flex;gap:10px;align-items:center;margin-bottom:24px;}
-.rdots{margin-left:auto;display:flex;gap:6px;align-items:center;}
-.rdot{width:10px;height:10px;border-radius:50%;background:var(--border);transition:all .4s cubic-bezier(.16,1,.3,1);}
-.rdot.done{background:var(--emerald);box-shadow:0 0 8px rgba(0,168,126,.4);}
-.rdot.now{background:var(--emerald);box-shadow:0 0 12px rgba(0,168,126,.5);animation:pulse 1.5s infinite;}
+.abar{display:flex;gap:10px;align-items:center;margin-bottom:24px;flex-wrap:wrap}
+.rdots{margin-left:auto;display:flex;gap:6px;align-items:center}
+.rdot{width:10px;height:10px;border-radius:50%;background:var(--border);transition:all .4s cubic-bezier(.16,1,.3,1)}
+.rdot.done{background:var(--emerald);box-shadow:0 0 8px rgba(0,168,126,.4)}
+.rdot.now{background:var(--emerald);box-shadow:0 0 12px rgba(0,168,126,.5);animation:pulse 1.5s infinite}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.4)}}
 
+/* ══════════ PHASE INDICATOR ══════════ */
+.phase-bar{display:flex;align-items:center;gap:8px;margin-bottom:20px;padding:10px 16px;background:#fff;border:1.5px solid var(--border);border-radius:100px;font-size:12px;font-weight:500;color:var(--mid)}
+.phase-dot{width:8px;height:8px;border-radius:50%;background:var(--emerald);animation:pulse 1.5s infinite}
+.phase-text{font-weight:600;color:var(--dark)}
+
 /* ══════════ SECTION LABEL ══════════ */
-.slabel{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--light);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
-.slabel::after{content:'';flex:1;height:1px;background:var(--border);}
+.slabel{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--light);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.slabel::after{content:'';flex:1;height:1px;background:var(--border)}
 
 /* ══════════ SUPPLIER CARDS ══════════ */
-.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px;margin-bottom:24px;}
-.sc{background:#fff;border:1.5px solid var(--border);border-radius:var(--r);padding:22px;transition:all .35s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;}
-.sc:hover{border-color:var(--navy);box-shadow:var(--shadow-lg);transform:translateY(-3px);}
-.sc .stripe{position:absolute;top:0;left:0;width:100%;height:3px;}
-.stripe-h{background:linear-gradient(90deg,var(--emerald),#34D399);}
-.stripe-m{background:linear-gradient(90deg,var(--amber),#F59E0B);}
-.stripe-l{background:linear-gradient(90deg,var(--red),#F87171);}
-.sc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
-.sc-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--navy);line-height:1.25;}
-.sc-ind{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;color:var(--light);margin-top:3px;}
-.sc-pr{text-align:right;}
-.sc-price{font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;letter-spacing:-1.5px;line-height:1;transition:color .3s;}
-.sc-chg{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;margin-top:3px;}
-.up{color:var(--emerald);}.down{color:var(--red);}.flat{color:var(--light);}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px;margin-bottom:24px}
+.sc{background:#fff;border:1.5px solid var(--border);border-radius:var(--r);padding:22px;transition:all .35s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden}
+.sc:hover{border-color:var(--navy);box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+.sc .stripe{position:absolute;top:0;left:0;width:100%;height:3px}
+.stripe-h{background:linear-gradient(90deg,var(--emerald),#34D399)}
+.stripe-m{background:linear-gradient(90deg,var(--amber),#F59E0B)}
+.stripe-l{background:linear-gradient(90deg,var(--red),#F87171)}
+.sc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.sc-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--navy);line-height:1.25}
+.sc-ind{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;color:var(--light);margin-top:3px}
+.sc-pr{text-align:right}
+.sc-price{font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;letter-spacing:-1.5px;line-height:1;transition:color .3s}
+.sc-chg{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;margin-top:3px}
+.up{color:var(--emerald)}.down{color:var(--red)}.flat{color:var(--light)}
 
-.spark-wrap{height:48px;margin:14px 0 10px;position:relative;}
-.spark-cv{width:100%;height:100%;}
+.spark-wrap{height:48px;margin:14px 0 10px;position:relative}
+.spark-cv{width:100%;height:100%}
 
-.esg-row{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:10px;}
-.esg{font-size:9px;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.7px;text-transform:uppercase;}
-.esg-a{background:var(--emerald-bg);color:var(--emerald);}
-.esg-b{background:var(--amber-bg);color:var(--amber);}
-.esg-c{background:var(--red-bg);color:var(--red);}
-.esg-cert{background:var(--blue-bg);color:var(--blue);}
+.esg-row{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:10px}
+.esg{font-size:9px;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.7px;text-transform:uppercase}
+.esg-a{background:var(--emerald-bg);color:var(--emerald)}
+.esg-b{background:var(--amber-bg);color:var(--amber)}
+.esg-c{background:var(--red-bg);color:var(--red)}
+.esg-cert{background:var(--blue-bg);color:var(--blue)}
 
-.sust-bar{margin:8px 0 10px;}
-.sust-track{height:4px;background:var(--off-white);border-radius:2px;overflow:hidden;}
-.sust-fill{height:100%;border-radius:2px;transition:width .6s cubic-bezier(.16,1,.3,1);}
-.sust-lbl{display:flex;justify-content:space-between;margin-top:3px;font-size:9px;font-weight:500;color:var(--faint);text-transform:uppercase;letter-spacing:1px;}
+.sust-bar{margin:8px 0 10px}
+.sust-track{height:4px;background:var(--off-white);border-radius:2px;overflow:hidden}
+.sust-fill{height:100%;border-radius:2px;transition:width .6s cubic-bezier(.16,1,.3,1)}
+.sust-lbl{display:flex;justify-content:space-between;margin-top:3px;font-size:9px;font-weight:500;color:var(--faint);text-transform:uppercase;letter-spacing:1px}
 
-.sc-desc{font-size:11px;color:var(--light);line-height:1.55;margin-bottom:14px;font-weight:300;}
-.trade{display:flex;gap:6px;align-items:center;padding-top:14px;border-top:1px solid var(--border);}
-.tq{width:52px;text-align:center;padding:9px 6px;background:var(--off-white);border:1.5px solid var(--border);border-radius:var(--r-sm);font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:var(--dark);}
-.tq:focus{outline:none;border-color:var(--emerald);}
-.tb{flex:1;padding:9px 0;border-radius:var(--r-sm);font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;cursor:pointer;border:1.5px solid;text-transform:uppercase;letter-spacing:1.2px;transition:all .2s;}
-.bb{background:var(--emerald-bg);border-color:rgba(0,168,126,.15);color:var(--emerald);}
-.bb:hover{background:var(--emerald);color:#fff;border-color:var(--emerald);box-shadow:0 4px 12px rgba(0,168,126,.3);}
-.sb{background:var(--red-bg);border-color:rgba(214,40,57,.15);color:var(--red);}
-.sb:hover{background:var(--red);color:#fff;border-color:var(--red);box-shadow:0 4px 12px rgba(214,40,57,.3);}
-.held{font-family:'JetBrains Mono',monospace;font-size:10px;text-align:center;color:var(--light);margin-top:7px;font-weight:400;letter-spacing:.3px;}
+.sc-desc{font-size:11px;color:var(--light);line-height:1.55;margin-bottom:14px;font-weight:300}
+.trade{display:flex;gap:6px;align-items:center;padding-top:14px;border-top:1px solid var(--border)}
+.tq{width:52px;text-align:center;padding:9px 6px;background:var(--off-white);border:1.5px solid var(--border);border-radius:var(--r-sm);font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:var(--dark)}
+.tq:focus{outline:none;border-color:var(--emerald)}
+.tb-trade{flex:1;padding:9px 0;border-radius:var(--r-sm);font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;cursor:pointer;border:1.5px solid;text-transform:uppercase;letter-spacing:1.2px;transition:all .2s}
+.bb{background:var(--emerald-bg);border-color:rgba(0,168,126,.15);color:var(--emerald)}
+.bb:hover{background:var(--emerald);color:#fff;border-color:var(--emerald);box-shadow:0 4px 12px rgba(0,168,126,.3)}
+.sb{background:var(--red-bg);border-color:rgba(214,40,57,.15);color:var(--red)}
+.sb:hover{background:var(--red);color:#fff;border-color:var(--red);box-shadow:0 4px 12px rgba(214,40,57,.3)}
+.held{font-family:'JetBrains Mono',monospace;font-size:10px;text-align:center;color:var(--light);margin-top:7px;font-weight:400;letter-spacing:.3px}
 
 /* ══════════ SIDEBAR ══════════ */
-.ss{margin-bottom:28px;}
-.ss-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--faint);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);}
-
-/* Donut chart */
-.donut-wrap{display:flex;align-items:center;gap:16px;margin-bottom:16px;}
-.donut-svg{width:90px;height:90px;transform:rotate(-90deg);}
-.donut-svg circle{fill:none;stroke-width:10;transition:stroke-dasharray .6s cubic-bezier(.16,1,.3,1);}
-.donut-center{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--dark);}
-.donut-legend{flex:1;}
-.dl-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--mid);padding:2px 0;}
-.dl-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
-
-.pi{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--off-white);font-size:12px;}
-.pi:last-child{border-bottom:none;}
-.pi .pn{color:var(--mid);font-weight:400;}
-.pi .pq{color:var(--faint);font-weight:300;font-size:11px;}
-.pi .pv{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:12px;color:var(--dark);}
-.pt{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0 0;border-top:2px solid var(--navy);margin-top:8px;}
-.pt-l{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--mid);}
-.pt-v{font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700;color:var(--navy);}
-
-.elog{max-height:300px;overflow-y:auto;}
-.el-item{padding:12px;background:var(--off-white);border-radius:var(--r-sm);margin-bottom:6px;border-left:3px solid var(--emerald);animation:elIn .4s cubic-bezier(.16,1,.3,1);}
+.ss{margin-bottom:28px}
+.ss-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--faint);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.donut-wrap{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.donut-svg{width:90px;height:90px;transform:rotate(-90deg)}
+.donut-svg circle{fill:none;stroke-width:10;transition:stroke-dasharray .6s cubic-bezier(.16,1,.3,1)}
+.donut-legend{flex:1}
+.dl-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--mid);padding:2px 0}
+.dl-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.pi{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--off-white);font-size:12px}
+.pi:last-child{border-bottom:none}
+.pi .pn{color:var(--mid);font-weight:400}
+.pi .pq{color:var(--faint);font-weight:300;font-size:11px}
+.pi .pv{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:12px;color:var(--dark)}
+.pt{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0 0;border-top:2px solid var(--navy);margin-top:8px}
+.pt-l{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--mid)}
+.pt-v{font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700;color:var(--navy)}
+.elog{max-height:300px;overflow-y:auto}
+.el-item{padding:12px;background:var(--off-white);border-radius:var(--r-sm);margin-bottom:6px;border-left:3px solid var(--emerald);animation:elIn .4s cubic-bezier(.16,1,.3,1)}
 @keyframes elIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
-.el-r{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--emerald);margin-bottom:3px;}
-.el-t{font-size:12px;color:var(--mid);line-height:1.4;}
+.el-r{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--emerald);margin-bottom:3px}
+.el-t{font-size:12px;color:var(--mid);line-height:1.4}
 
-/* ══════════ CINEMATIC COUNTDOWN ══════════ */
-.countdown-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(5,28,44,.92);backdrop-filter:blur(20px);align-items:center;justify-content:center;flex-direction:column;}
-.countdown-overlay.active{display:flex;}
-.cd-number{font-family:'Cormorant Garamond',serif;font-size:180px;font-weight:700;color:#fff;opacity:0;animation:cdPop .7s cubic-bezier(.16,1,.3,1) forwards;}
+/* ══════════ TURN TRANSITION OVERLAY ══════════ */
+.turn-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(5,28,44,.92);backdrop-filter:blur(20px);align-items:center;justify-content:center;flex-direction:column;gap:16px;text-align:center}
+.turn-overlay.active{display:flex}
+.turn-overlay .to-icon{font-size:64px;animation:toIconIn .5s cubic-bezier(.16,1,.3,1)}
+@keyframes toIconIn{from{transform:scale(.3) rotate(-20deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+.turn-overlay .to-label{font-size:12px;text-transform:uppercase;letter-spacing:4px;color:rgba(255,255,255,.4);font-weight:500}
+.turn-overlay .to-team{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:#fff;letter-spacing:-.5px}
+.turn-overlay .to-sub{font-size:14px;color:rgba(255,255,255,.5);font-weight:300}
+.turn-overlay .to-btn{margin-top:12px}
+
+/* ══════════ COUNTDOWN ══════════ */
+.cd-overlay{display:none;position:fixed;inset:0;z-index:600;background:rgba(5,28,44,.92);backdrop-filter:blur(20px);align-items:center;justify-content:center;flex-direction:column}
+.cd-overlay.active{display:flex}
+.cd-num{font-family:'Cormorant Garamond',serif;font-size:180px;font-weight:700;color:#fff;opacity:0;animation:cdPop .7s cubic-bezier(.16,1,.3,1) forwards}
 @keyframes cdPop{0%{opacity:0;transform:scale(2.5)}40%{opacity:1;transform:scale(.9)}100%{opacity:0;transform:scale(.6)}}
-.cd-label{font-size:14px;font-weight:400;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:4px;margin-top:-20px;}
-.cd-round-label{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#fff;opacity:0;animation:cdFade .5s .1s ease forwards;}
+.cd-label{font-size:14px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:4px;margin-top:-20px}
+.cd-round{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#fff;opacity:0;animation:cdFade .5s .1s ease forwards}
 @keyframes cdFade{to{opacity:1}}
 
 /* ══════════ EVENT MODAL ══════════ */
-.mo{display:none;position:fixed;inset:0;z-index:300;align-items:center;justify-content:center;}
-.mo.active{display:flex;}
-.mo-bg{position:absolute;inset:0;background:rgba(5,28,44,.88);backdrop-filter:blur(16px);animation:bgIn .3s ease;}
+.mo{display:none;position:fixed;inset:0;z-index:300;align-items:center;justify-content:center}
+.mo.active{display:flex}
+.mo-bg{position:absolute;inset:0;background:rgba(5,28,44,.88);backdrop-filter:blur(16px);animation:bgIn .3s ease}
 @keyframes bgIn{from{opacity:0}to{opacity:1}}
-.mo-card{position:relative;z-index:1;max-width:660px;width:93%;animation:moIn .6s cubic-bezier(.16,1,.3,1);}
+.mo-card{position:relative;z-index:1;max-width:660px;width:93%;animation:moIn .6s cubic-bezier(.16,1,.3,1)}
 @keyframes moIn{from{opacity:0;transform:scale(.86) translateY(40px)}to{opacity:1;transform:scale(1) translateY(0)}}
-.mo-flash{background:var(--red);color:#fff;text-align:center;padding:11px;font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;border-radius:16px 16px 0 0;position:relative;overflow:hidden;}
-.mo-flash::before{content:'';position:absolute;top:0;left:-100%;width:200%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);animation:sweep 2.5s infinite;}
+.mo-flash{background:var(--red);color:#fff;text-align:center;padding:11px;font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;border-radius:16px 16px 0 0;position:relative;overflow:hidden}
+.mo-flash::before{content:'';position:absolute;top:0;left:-100%;width:200%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);animation:sweep 2.5s infinite}
 @keyframes sweep{from{transform:translateX(-50%)}to{transform:translateX(50%)}}
-.mo-body{background:#fff;padding:40px 36px 28px;border-radius:0 0 16px 16px;box-shadow:var(--shadow-xl);}
-.mo-icon{font-size:56px;display:block;margin-bottom:14px;animation:moIconIn .6s .2s cubic-bezier(.16,1,.3,1) both;}
+.mo-body{background:#fff;padding:40px 36px 28px;border-radius:0 0 16px 16px;box-shadow:var(--shadow-xl)}
+.mo-icon{font-size:56px;display:block;margin-bottom:14px;animation:moIconIn .6s .2s cubic-bezier(.16,1,.3,1) both}
 @keyframes moIconIn{from{opacity:0;transform:scale(.2) rotate(-15deg)}to{opacity:1;transform:scale(1) rotate(0)}}
-.mo-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--navy);letter-spacing:-.5px;margin-bottom:10px;line-height:1.2;}
-.mo-desc{font-size:14px;color:var(--mid);line-height:1.7;margin-bottom:24px;font-weight:300;}
-.imp-tbl{width:100%;border-collapse:collapse;margin-bottom:20px;}
-.imp-tbl th{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--faint);padding:7px 10px;text-align:left;border-bottom:1px solid var(--border);}
-.imp-tbl th:last-child{text-align:right;}
-.imp-tbl td{padding:9px 10px;font-size:13px;border-bottom:1px solid var(--off-white);}
-.imp-tbl td:last-child{text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600;font-size:12px;}
-.imp-tbl tbody tr{animation:impRow .35s ease both;}
-.imp-tbl tbody tr:nth-child(1){animation-delay:.08s}
-.imp-tbl tbody tr:nth-child(2){animation-delay:.12s}
-.imp-tbl tbody tr:nth-child(3){animation-delay:.16s}
-.imp-tbl tbody tr:nth-child(4){animation-delay:.20s}
-.imp-tbl tbody tr:nth-child(5){animation-delay:.24s}
-.imp-tbl tbody tr:nth-child(6){animation-delay:.28s}
-.imp-tbl tbody tr:nth-child(7){animation-delay:.32s}
-.imp-tbl tbody tr:nth-child(8){animation-delay:.36s}
+.mo-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--navy);letter-spacing:-.5px;margin-bottom:10px;line-height:1.2}
+.mo-desc{font-size:14px;color:var(--mid);line-height:1.7;margin-bottom:24px;font-weight:300}
+.imp-tbl{width:100%;border-collapse:collapse;margin-bottom:20px}
+.imp-tbl th{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--faint);padding:7px 10px;text-align:left;border-bottom:1px solid var(--border)}
+.imp-tbl th:last-child{text-align:right}
+.imp-tbl td{padding:9px 10px;font-size:13px;border-bottom:1px solid var(--off-white)}
+.imp-tbl td:last-child{text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600;font-size:12px}
+.imp-tbl tbody tr{animation:impRow .35s ease both}
+.imp-tbl tbody tr:nth-child(1){animation-delay:.08s}.imp-tbl tbody tr:nth-child(2){animation-delay:.12s}.imp-tbl tbody tr:nth-child(3){animation-delay:.16s}.imp-tbl tbody tr:nth-child(4){animation-delay:.20s}.imp-tbl tbody tr:nth-child(5){animation-delay:.24s}.imp-tbl tbody tr:nth-child(6){animation-delay:.28s}.imp-tbl tbody tr:nth-child(7){animation-delay:.32s}.imp-tbl tbody tr:nth-child(8){animation-delay:.36s}
 @keyframes impRow{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
-.imp-bar-wrap{display:flex;align-items:center;gap:6px;}
-.imp-bar-bg{width:80px;height:5px;background:var(--off-white);border-radius:3px;position:relative;overflow:hidden;}
-.imp-bar{height:100%;border-radius:3px;position:absolute;top:0;transition:width .7s cubic-bezier(.16,1,.3,1);}
-.imp-bar.pos{left:50%;background:var(--emerald);}
-.imp-bar.neg{right:50%;background:var(--red);}
-
-/* ══════════ PARTICLE BURST ══════════ */
-.particle-container{position:fixed;inset:0;pointer-events:none;z-index:400;}
-
-/* ══════════ SCREEN SHAKE ══════════ */
-.shake{animation:shake .4s ease;}
-@keyframes shake{0%,100%{transform:translateX(0)}10%,50%,90%{transform:translateX(-4px)}30%,70%{transform:translateX(4px)}}
+.imp-bar-wrap{display:flex;align-items:center;gap:6px}
+.imp-bar-bg{width:80px;height:5px;background:var(--off-white);border-radius:3px;position:relative;overflow:hidden}
+.imp-bar{height:100%;border-radius:3px;position:absolute;top:0;transition:width .7s cubic-bezier(.16,1,.3,1)}
+.imp-bar.pos{left:50%;background:var(--emerald)}
+.imp-bar.neg{right:50%;background:var(--red)}
 
 /* ══════════ RESULTS ══════════ */
-.res-wrap{max-width:980px;margin:0 auto;padding:48px 28px 80px;}
-.res-hero{text-align:center;margin-bottom:52px;position:relative;}
-.res-spotlight{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:500px;height:400px;background:radial-gradient(ellipse,rgba(184,148,31,.08),transparent 70%);pointer-events:none;}
-.res-crown{font-size:80px;display:block;margin-bottom:12px;animation:crownBounce 2s ease-in-out infinite;position:relative;}
+.res-wrap{max-width:980px;margin:0 auto;padding:48px 28px 80px}
+.res-hero{text-align:center;margin-bottom:52px;position:relative}
+.res-spotlight{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:500px;height:400px;background:radial-gradient(ellipse,rgba(184,148,31,.08),transparent 70%);pointer-events:none}
+.res-crown{font-size:80px;display:block;margin-bottom:12px;animation:crownBounce 2s ease-in-out infinite;position:relative}
 @keyframes crownBounce{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-12px) rotate(3deg)}75%{transform:translateY(-4px) rotate(-2deg)}}
-.res-h2{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:var(--navy);letter-spacing:-1px;margin-bottom:6px;position:relative;}
-.res-sub{font-size:15px;color:var(--light);font-weight:300;}
-
-.lb{display:flex;flex-direction:column;gap:10px;margin-bottom:48px;}
-.lbc{display:grid;grid-template-columns:56px 1fr 130px 100px 160px;align-items:center;background:#fff;border:1.5px solid var(--border);border-radius:var(--r);padding:18px 22px;transition:all .3s;animation:lbIn .5s cubic-bezier(.16,1,.3,1) both;}
+.res-h2{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:var(--navy);letter-spacing:-1px;margin-bottom:6px;position:relative}
+.res-sub{font-size:15px;color:var(--light);font-weight:300}
+.lb{display:flex;flex-direction:column;gap:10px;margin-bottom:48px}
+.lbc{display:grid;grid-template-columns:56px 1fr 130px 100px 160px;align-items:center;background:#fff;border:1.5px solid var(--border);border-radius:var(--r);padding:18px 22px;animation:lbIn .5s cubic-bezier(.16,1,.3,1) both}
 .lbc:nth-child(1){animation-delay:.1s}.lbc:nth-child(2){animation-delay:.2s}.lbc:nth-child(3){animation-delay:.3s}.lbc:nth-child(4){animation-delay:.4s}
 @keyframes lbIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.lbc.win{border-color:var(--gold);background:linear-gradient(135deg,#fff,var(--gold-bg));box-shadow:0 12px 40px rgba(184,148,31,.12);}
-.lbc-rank{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--faint);}
-.lbc.win .lbc-rank{color:var(--gold-rich);}
-.lbc-name{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--navy);}
-.lbc-col{text-align:center;}
-.lbc-cl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--faint);margin-bottom:3px;}
-.lbc-cv{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:600;color:var(--dark);}
-.lbc-cv.esg{color:var(--emerald);}
-.lbc-fin{text-align:right;}
-.lbc-fv{font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700;color:var(--navy);}
-.lbc.win .lbc-fv{color:var(--gold-rich);}
-.mult-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;padding:3px 8px;border-radius:100px;background:var(--emerald-bg);color:var(--emerald);margin-top:3px;letter-spacing:.5px;}
-
-.bd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(430px,1fr));gap:14px;margin-bottom:48px;}
-.bdc{background:#fff;border:1.5px solid var(--border);border-radius:var(--r);padding:22px;animation:lbIn .5s cubic-bezier(.16,1,.3,1) both;}
-.bdc-title{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);}
-.bdc-row{display:flex;justify-content:space-between;padding:7px 0;font-size:12px;border-bottom:1px solid var(--off-white);}
-.bdc-row:last-child{border-bottom:none;}
-.bdc-row .l{color:var(--mid);}
-.bdc-row .v{font-family:'JetBrains Mono',monospace;font-weight:600;}
-.bdc-sum{display:flex;justify-content:space-between;padding:14px 0 0;border-top:2px solid var(--navy);margin-top:10px;font-weight:700;font-size:15px;}
-.bdc-sum .fv{font-family:'JetBrains Mono',monospace;color:var(--gold-rich);}
-
-.guide-box{background:var(--navy);border-radius:var(--r);padding:32px;color:#fff;position:relative;overflow:hidden;}
-.guide-box::before{content:'';position:absolute;top:-40%;right:-15%;width:350px;height:350px;background:radial-gradient(circle,rgba(0,168,126,.12),transparent 70%);}
-.guide-box h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin-bottom:18px;position:relative;}
-.gr{display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:13px;border-bottom:1px solid rgba(255,255,255,.06);position:relative;}
-.gr:last-child{border-bottom:none;}
-.gr .rng{color:rgba(255,255,255,.45);font-weight:300;}
-.gr .nt{color:rgba(255,255,255,.3);font-size:11px;}
-.gr .ml{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--emerald);}
+.lbc.win{border-color:var(--gold);background:linear-gradient(135deg,#fff,var(--gold-bg));box-shadow:0 12px 40px rgba(184,148,31,.12)}
+.lbc-rank{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--faint)}
+.lbc.win .lbc-rank{color:var(--gold-rich)}
+.lbc-name{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--navy)}
+.lbc-col{text-align:center}
+.lbc-cl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--faint);margin-bottom:3px}
+.lbc-cv{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:600;color:var(--dark)}
+.lbc-cv.esg{color:var(--emerald)}
+.lbc-fin{text-align:right}
+.lbc-fv{font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700;color:var(--navy)}
+.lbc.win .lbc-fv{color:var(--gold-rich)}
+.mult-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;padding:3px 8px;border-radius:100px;background:var(--emerald-bg);color:var(--emerald);margin-top:3px;letter-spacing:.5px}
+.bd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(430px,1fr));gap:14px;margin-bottom:48px}
+.bdc{background:#fff;border:1.5px solid var(--border);border-radius:var(--r);padding:22px;animation:lbIn .5s cubic-bezier(.16,1,.3,1) both}
+.bdc-title{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.bdc-row{display:flex;justify-content:space-between;padding:7px 0;font-size:12px;border-bottom:1px solid var(--off-white)}
+.bdc-row:last-child{border-bottom:none}
+.bdc-row .l{color:var(--mid)}.bdc-row .v{font-family:'JetBrains Mono',monospace;font-weight:600}
+.bdc-sum{display:flex;justify-content:space-between;padding:14px 0 0;border-top:2px solid var(--navy);margin-top:10px;font-weight:700;font-size:15px}
+.bdc-sum .fv{font-family:'JetBrains Mono',monospace;color:var(--gold-rich)}
+.guide-box{background:var(--navy);border-radius:var(--r);padding:32px;color:#fff;position:relative;overflow:hidden}
+.guide-box::before{content:'';position:absolute;top:-40%;right:-15%;width:350px;height:350px;background:radial-gradient(circle,rgba(61,216,192,.12),transparent 70%)}
+.guide-box h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin-bottom:18px;position:relative}
+.gr{display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:13px;border-bottom:1px solid rgba(255,255,255,.06);position:relative}
+.gr:last-child{border-bottom:none}
+.gr .rng{color:rgba(255,255,255,.45);font-weight:300}
+.gr .nt{color:rgba(255,255,255,.3);font-size:11px}
+.gr .ml{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--emerald)}
 
 /* ══════════ TOAST ══════════ */
-.toast-c{position:fixed;bottom:20px;right:20px;z-index:600;display:flex;flex-direction:column-reverse;gap:6px;}
-.toast{background:#fff;border:1px solid var(--border);border-radius:var(--r-sm);padding:12px 18px;font-size:13px;box-shadow:var(--shadow-lg);animation:tIn .3s cubic-bezier(.16,1,.3,1),tOut .3s 2.6s forwards;max-width:340px;display:flex;align-items:center;gap:8px;}
+.toast-c{position:fixed;bottom:20px;right:20px;z-index:800;display:flex;flex-direction:column-reverse;gap:6px}
+.toast{background:#fff;border:1px solid var(--border);border-radius:var(--r-sm);padding:12px 18px;font-size:13px;box-shadow:var(--shadow-lg);animation:tIn .3s cubic-bezier(.16,1,.3,1),tOut .3s 2.6s forwards;max-width:340px;display:flex;align-items:center;gap:8px}
 @keyframes tIn{from{opacity:0;transform:translateY(8px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
 @keyframes tOut{to{opacity:0;transform:translateY(8px)}}
-.toast-s{border-left:3px solid var(--emerald);}
-.toast-e{border-left:3px solid var(--red);}
-.toast-i{border-left:3px solid var(--blue);}
-.t-icon{font-size:16px;}
+.toast-s{border-left:3px solid var(--emerald)}.toast-e{border-left:3px solid var(--red)}.toast-i{border-left:3px solid var(--blue)}
+.t-icon{font-size:16px}
 
-canvas#confetti{position:fixed;inset:0;pointer-events:none;z-index:700;}
+canvas#confetti{position:fixed;inset:0;pointer-events:none;z-index:700}
+.particle-container{position:fixed;inset:0;pointer-events:none;z-index:400}
+.shake{animation:shake .4s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}10%,50%,90%{transform:translateX(-4px)}30%,70%{transform:translateX(4px)}}
 
-@media(max-width:1024px){
-  .game-layout{grid-template-columns:1fr;}.side{border-left:none;border-top:1px solid var(--border);max-height:none;}.main{max-height:none;}
-  .header{padding:0 16px;}.main{padding:16px;}.sgrid{grid-template-columns:1fr;}
-  .lbc{grid-template-columns:36px 1fr 80px 64px 100px;padding:12px;font-size:12px;}
-  .bd-grid{grid-template-columns:1fr;}.res-h2{font-size:32px;}
-}
+/* ══════════ SVG ICONS ══════════ */
+.icon{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.icon svg{width:100%;height:100%;fill:currentColor}
+.icon-sm{width:16px;height:16px}
+.icon-md{width:20px;height:20px}
+.icon-lg{width:24px;height:24px}
+.icon-xl{width:32px;height:32px}
+.icon-xxl{width:48px;height:48px}
+
+/* ══════════ VMC BRANDING ══════════ */
+.vmc-logo{display:flex;align-items:center;gap:10px}
+.vmc-mark{font-family:'Outfit',sans-serif;font-size:16px;font-weight:800;color:var(--vmc);letter-spacing:2px}
+.vmc-tag{font-size:8px;font-weight:600;color:rgba(255,255,255,.3);letter-spacing:2px;text-transform:uppercase;margin-top:-2px}
+.vmc-name{font-family:'Cormorant Garamond',serif;font-size:11px;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:1.5px;text-transform:uppercase}
+.vmc-footer{text-align:center;padding:32px 20px;font-size:11px;color:var(--light);font-weight:300;border-top:1px solid var(--border);margin-top:48px}
+.vmc-footer strong{font-weight:600;color:var(--mid);letter-spacing:.5px}
+.vmc-footer .vmc-footer-logo{display:inline-flex;align-items:center;gap:8px;margin-bottom:8px}
+.vmc-footer .vmc-f-mark{font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;color:var(--vmc);letter-spacing:1px}
+.vmc-footer .vmc-f-tag{font-size:9px;font-weight:600;color:var(--light);letter-spacing:2px;text-transform:uppercase}
+
+/* ══════════ SETUP BRANDING ══════════ */
+.setup-brand{display:flex;align-items:center;gap:14px;margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.setup-brand-mark{font-family:'Outfit',sans-serif;font-size:32px;font-weight:800;color:var(--vmc);letter-spacing:1px;line-height:1}
+.setup-brand-text{}
+.setup-brand-name{font-family:'Outfit',sans-serif;font-size:10px;font-weight:700;color:var(--mid);text-transform:uppercase;letter-spacing:3px}
+.setup-brand-tag{font-size:9px;font-weight:400;color:var(--light);text-transform:uppercase;letter-spacing:2px;margin-top:2px}
+
+/* ══════════ PROFESSIONAL OVERLAY ICONS ══════════ */
+.overlay-icon{width:72px;height:72px;border-radius:18px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 12px 32px rgba(0,0,0,.15)}
+.overlay-icon.icon-trade{background:linear-gradient(135deg,var(--vmc),var(--vmc-bright))}
+.overlay-icon.icon-event{background:linear-gradient(135deg,var(--red),#F87171)}
+.overlay-icon.icon-complete{background:linear-gradient(135deg,var(--gold),var(--gold-rich))}
+.overlay-icon.icon-round{background:linear-gradient(135deg,var(--blue),#60A5FA)}
+.overlay-icon svg{width:36px;height:36px;fill:#fff}
+
+/* ══════════ EVENT ICON REFINED ══════════ */
+.mo-icon-box{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:32px}
+.mo-icon-box.ev-regulation{background:linear-gradient(135deg,#1E3A5F,#2563EB);box-shadow:0 8px 24px rgba(37,99,235,.2)}
+.mo-icon-box.ev-consumer{background:linear-gradient(135deg,#7C3AED,#A855F7);box-shadow:0 8px 24px rgba(124,58,237,.2)}
+.mo-icon-box.ev-innovation{background:linear-gradient(135deg,var(--vmc-dim),var(--vmc));box-shadow:0 8px 24px rgba(61,216,192,.2)}
+.mo-icon-box.ev-energy{background:linear-gradient(135deg,#D4930D,#F59E0B);box-shadow:0 8px 24px rgba(212,147,13,.2)}
+.mo-icon-box.ev-climate{background:linear-gradient(135deg,#0891B2,#22D3EE);box-shadow:0 8px 24px rgba(8,145,178,.2)}
+.mo-icon-box.ev-finance{background:linear-gradient(135deg,var(--vmc-dim),#14B8A6);box-shadow:0 8px 24px rgba(61,216,192,.2)}
+.mo-icon-box.ev-downturn{background:linear-gradient(135deg,var(--red),#F87171);box-shadow:0 8px 24px rgba(214,40,57,.2)}
+.mo-icon-box.ev-labor{background:linear-gradient(135deg,#7C3AED,#A855F7);box-shadow:0 8px 24px rgba(124,58,237,.2)}
+.mo-icon-box.ev-circular{background:linear-gradient(135deg,#059669,#10B981);box-shadow:0 8px 24px rgba(5,150,105,.2)}
+.mo-icon-box.ev-commodity{background:linear-gradient(135deg,#D4930D,#F59E0B);box-shadow:0 8px 24px rgba(212,147,13,.2)}
+.mo-icon-box.ev-awards{background:linear-gradient(135deg,var(--gold),var(--gold-rich));box-shadow:0 8px 24px rgba(184,148,31,.2)}
+.mo-icon-box.ev-geo{background:linear-gradient(135deg,var(--red),#DC2626);box-shadow:0 8px 24px rgba(214,40,57,.2)}
+
+/* Results trophy refined */
+.res-trophy{width:88px;height:88px;margin:0 auto 20px;background:linear-gradient(135deg,var(--gold),var(--gold-rich));border-radius:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 48px rgba(184,148,31,.25);animation:crownBounce 2s ease-in-out infinite}
+.res-trophy svg{width:44px;height:44px;fill:#fff}
+
+@media(max-width:1024px){.game-layout{grid-template-columns:1fr}.side{border-left:none;border-top:1px solid var(--border);max-height:none}.main{max-height:none}.header{padding:0 16px}.main{padding:16px}.sgrid{grid-template-columns:1fr}.lbc{grid-template-columns:36px 1fr 80px 64px 100px;padding:12px;font-size:12px}.bd-grid{grid-template-columns:1fr}.res-h2{font-size:32px}.turn-banner{flex-direction:column;text-align:center;gap:12px}.tb-right{flex-direction:column}}
 </style>
 </head>
 <body>
@@ -328,40 +357,34 @@ canvas#confetti{position:fixed;inset:0;pointer-events:none;z-index:700;}
 <canvas id="confetti"></canvas>
 <div class="particle-container" id="particles"></div>
 
-<!-- TICKER -->
-<div class="ticker-wrap" id="tickerWrap">
-  <div class="ticker" id="ticker"></div>
-</div>
+<div class="ticker-wrap" id="tickerWrap"><div class="ticker" id="ticker"></div></div>
 
-<!-- HEADER -->
 <div class="header">
-  <div class="h-left">
-    <div class="h-bar"></div>
-    <div><div class="h-title">The Sustainable Supplier Exchange</div><div class="h-sub">Procurement Simulation</div></div>
-  </div>
+  <div class="h-left"><div class="h-bar"></div><div><div class="h-title">The Sustainable Supplier Exchange</div><div class="h-sub">VMC Consulting · Procurement Simulation</div></div></div>
   <div class="h-right">
+    <div class="vmc-logo"><div><div class="vmc-mark">VMC</div><div class="vmc-tag">Consulting Services</div></div></div>
     <div class="h-badge h-round" id="hRound">Setup</div>
     <div class="h-badge h-coin" id="hCoin" style="display:none">◆ <span id="coinAmt">0</span> PC</div>
     <button class="h-sound" id="soundBtn" onclick="toggleSound()" title="Toggle sounds">🔊</button>
   </div>
 </div>
 
-<!-- COUNTDOWN OVERLAY -->
-<div class="countdown-overlay" id="cdOverlay"></div>
-
-<!-- TOAST -->
+<div class="turn-overlay" id="turnOv"></div>
+<div class="cd-overlay" id="cdOv"></div>
 <div class="toast-c" id="toastC"></div>
 
-<!-- ══════ SETUP ══════ -->
+<!-- SETUP -->
 <div class="screen active" id="setupScreen">
   <div class="setup-wrap">
-    <div class="setup-bg"></div>
-    <div class="setup-grid"></div>
+    <div class="setup-bg"></div><div class="setup-grid"></div>
     <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
     <div class="setup-card">
-      <div class="s-icon">📊</div>
-      <h2>Welcome to<br>the Exchange</h2>
-      <p class="sub">Build sustainable supply chain portfolios. Navigate regulations, market shifts, and ESG events. Prove that sustainable procurement wins long-term.</p>
+      <div class="setup-brand">
+        <div class="setup-brand-mark">VMC</div>
+        <div class="setup-brand-text"><div class="setup-brand-name">Consulting Services</div><div class="setup-brand-tag">Sustainable Procurement Practice</div></div>
+      </div>
+      <h2>The Sustainable<br>Supplier Exchange</h2>
+      <p class="sub">A VMC Consulting simulation designed to demonstrate how ESG-driven procurement decisions create long-term value. Navigate regulations, market shifts, and sustainability events to build a resilient portfolio.</p>
       <div class="fg"><label class="fl">Rounds</label><select class="fs" id="nR"><option value="4">4 — Sprint</option><option value="5">5 — Standard</option><option value="6" selected>6 — Full Simulation</option></select></div>
       <div class="fg"><label class="fl">Starting Capital</label><select class="fs" id="nB"><option value="5000">5,000 PC — Lean</option><option value="10000" selected>10,000 PC — Standard</option><option value="20000">20,000 PC — Enterprise</option></select></div>
       <div class="fg"><label class="fl">Teams</label>
@@ -373,370 +396,313 @@ canvas#confetti{position:fixed;inset:0;pointer-events:none;z-index:700;}
   </div>
 </div>
 
-<!-- ══════ GAME ══════ -->
+<!-- GAME -->
 <div class="screen" id="gameScreen">
   <div class="game-layout">
     <div class="main" id="mainArea">
+      <div class="turn-banner" id="turnBanner"></div>
       <div class="tabs" id="tabs"></div>
-      <div class="abar">
-        <button class="btn btn-em" id="nrBtn" onclick="nextRound()">⚡ Next Round</button>
-        <button class="btn btn-out" id="egBtn" onclick="endGame()">End Game</button>
-        <div class="rdots" id="rdots"></div>
-      </div>
+      <div class="abar" id="abar"></div>
       <div class="slabel">Supplier Market</div>
       <div class="sgrid" id="sgrid"></div>
     </div>
     <div class="side">
-      <div class="ss">
-        <div class="ss-label">Portfolio</div>
+      <div class="ss"><div class="ss-label">Portfolio</div>
         <div class="donut-wrap"><svg class="donut-svg" viewBox="0 0 42 42" id="donutSvg"><circle cx="21" cy="21" r="16" stroke="var(--off-white)" stroke-width="10"/></svg><div class="donut-legend" id="donutLeg"></div></div>
         <div id="pList"></div>
         <div class="pt"><span class="pt-l">Total Value</span><span class="pt-v" id="pTotal">0 PC</span></div>
       </div>
-      <div class="ss">
-        <div class="ss-label">Events</div>
-        <div class="elog" id="eLog"></div>
-      </div>
+      <div class="ss"><div class="ss-label">Events</div><div class="elog" id="eLog"></div></div>
     </div>
   </div>
 </div>
 
-<!-- ══════ RESULTS ══════ -->
+<!-- RESULTS -->
 <div class="screen" id="resultsScreen"><div class="res-wrap" id="resC"></div></div>
 
-<!-- ══════ EVENT MODAL ══════ -->
-<div class="mo" id="eMo">
-  <div class="mo-bg" onclick="closeEv()"></div>
-  <div class="mo-card" id="eMoC"></div>
-</div>
+<!-- EVENT MODAL -->
+<div class="mo" id="eMo"><div class="mo-bg"></div><div class="mo-card" id="eMoC"></div></div>
 </div>
 
 <script>
 // ═══════════════════════════════════════
 // AUDIO
 // ═══════════════════════════════════════
-let soundOn = true;
-const AudioCtx = window.AudioContext || window.webkitAudioContext;
-let actx;
-function ensureAudio(){if(!actx)actx=new AudioCtx();}
-function playTone(freq,dur,type='sine',vol=0.08){
-  if(!soundOn)return;ensureAudio();
-  const o=actx.createOscillator(),g=actx.createGain();
-  o.type=type;o.frequency.value=freq;g.gain.value=vol;
-  g.gain.exponentialRampToValueAtTime(0.001,actx.currentTime+dur);
-  o.connect(g);g.connect(actx.destination);o.start();o.stop(actx.currentTime+dur);
-}
-function sndBuy(){playTone(880,.12,'sine',0.06);setTimeout(()=>playTone(1100,.1,'sine',0.05),80);}
-function sndSell(){playTone(440,.15,'triangle',0.06);setTimeout(()=>playTone(330,.12,'triangle',0.05),80);}
-function sndEvent(){playTone(220,.3,'sawtooth',0.04);setTimeout(()=>playTone(330,.2,'sawtooth',0.03),150);}
-function sndCountdown(){playTone(660,.15,'square',0.03);}
-function sndWin(){[0,100,200,300,400].forEach((d,i)=>setTimeout(()=>playTone(440+i*110,.2,'sine',0.05),d));}
-function toggleSound(){soundOn=!soundOn;document.getElementById('soundBtn').textContent=soundOn?'🔊':'🔇';}
+let soundOn=true;const AC=window.AudioContext||window.webkitAudioContext;let actx;
+function ea(){if(!actx)actx=new AC()}
+function tone(f,d,t='sine',v=.08){if(!soundOn)return;ea();const o=actx.createOscillator(),g=actx.createGain();o.type=t;o.frequency.value=f;g.gain.value=v;g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+d);o.connect(g);g.connect(actx.destination);o.start();o.stop(actx.currentTime+d)}
+function sndBuy(){tone(880,.12,'sine',.06);setTimeout(()=>tone(1100,.1,'sine',.05),80)}
+function sndSell(){tone(440,.15,'triangle',.06);setTimeout(()=>tone(330,.12,'triangle',.05),80)}
+function sndEvent(){tone(220,.3,'sawtooth',.04);setTimeout(()=>tone(330,.2,'sawtooth',.03),150)}
+function sndTick(){tone(660,.15,'square',.03)}
+function sndWin(){[0,100,200,300,400].forEach((d,i)=>setTimeout(()=>tone(440+i*110,.2,'sine',.05),d))}
+function sndTurn(){tone(520,.15,'sine',.05);setTimeout(()=>tone(660,.12,'sine',.04),100)}
+function toggleSound(){soundOn=!soundOn;document.getElementById('soundBtn').textContent=soundOn?'🔊':'🔇'}
+
+// Particles
+function burst(x,y,color,n=12){const c=document.getElementById('particles');for(let i=0;i<n;i++){const p=document.createElement('div');const a=Math.random()*Math.PI*2;const d=40+Math.random()*60;const s=3+Math.random()*5;Object.assign(p.style,{position:'fixed',left:x+'px',top:y+'px',width:s+'px',height:s+'px',borderRadius:'50%',background:color,pointerEvents:'none',zIndex:'400',transition:`all ${.4+Math.random()*.3}s cubic-bezier(.16,1,.3,1)`,opacity:'1'});c.appendChild(p);requestAnimationFrame(()=>{p.style.transform=`translate(${Math.cos(a)*d}px,${Math.sin(a)*d}px)`;p.style.opacity='0'});setTimeout(()=>p.remove(),800)}}
 
 // ═══════════════════════════════════════
-// PARTICLES
+// DATA
 // ═══════════════════════════════════════
-function burstParticles(x,y,color,count=12){
-  const c=document.getElementById('particles');
-  for(let i=0;i<count;i++){
-    const p=document.createElement('div');
-    const angle=Math.random()*Math.PI*2;
-    const dist=40+Math.random()*60;
-    const dx=Math.cos(angle)*dist;
-    const dy=Math.sin(angle)*dist;
-    const size=3+Math.random()*5;
-    Object.assign(p.style,{
-      position:'fixed',left:x+'px',top:y+'px',width:size+'px',height:size+'px',
-      borderRadius:'50%',background:color,pointerEvents:'none',zIndex:'400',
-      transition:`all ${.4+Math.random()*.3}s cubic-bezier(.16,1,.3,1)`,opacity:'1'
-    });
-    c.appendChild(p);
-    requestAnimationFrame(()=>{p.style.transform=`translate(${dx}px,${dy}px)`;p.style.opacity='0';});
-    setTimeout(()=>p.remove(),800);
-  }
-}
-
-// ═══════════════════════════════════════
-// SUPPLIERS & EVENTS (same as before)
-// ═══════════════════════════════════════
-const S=[
-  {id:'greenleaf',name:'GreenLeaf Electronics',ind:'Electronics',bp:120,sust:85,co2:'A',lab:'A',wst:'B+',cert:['ISO 14001','Fair Trade'],desc:'Premium eco-electronics. Exceptional ESG resilience and brand alignment.',col:'#00A87E'},
-  {id:'cheapchip',name:'CheapChip Inc.',ind:'Electronics',bp:45,sust:25,co2:'D',lab:'C',wst:'D',cert:[],desc:'Budget electronics, minimal sustainability. Attractive margins, hidden regulatory risk.',col:'#D62839'},
-  {id:'ecopack',name:'EcoPack Solutions',ind:'Packaging',bp:85,sust:78,co2:'B+',lab:'A',wst:'A',cert:['FSC','B Corp'],desc:'Biodegradable packaging innovator. Strong waste credentials & circular economy.',col:'#14B8A6'},
-  {id:'bulkwrap',name:'BulkWrap Global',ind:'Packaging',bp:35,sust:20,co2:'D',lab:'D',wst:'F',cert:[],desc:'Plastic-heavy, rock-bottom pricing. Significant environmental & regulatory exposure.',col:'#F97316'},
-  {id:'swiftlog',name:'SwiftLog Renewables',ind:'Logistics',bp:100,sust:72,co2:'A',lab:'B',wst:'B',cert:['Carbon Neutral','EV Fleet'],desc:'Electric fleet logistics. Energy independence provides cost stability.',col:'#1A6BF0'},
-  {id:'fastfreight',name:'FastFreight Ltd.',ind:'Logistics',bp:55,sust:30,co2:'D',lab:'C',wst:'C',cert:[],desc:'Traditional diesel fleet. Competitive today, fully exposed to carbon pricing.',col:'#7C3AED'},
-  {id:'fairthread',name:'FairThread Textiles',ind:'Textiles',bp:95,sust:82,co2:'B',lab:'A+',wst:'A',cert:['GOTS','Fair Trade','OEKO-TEX'],desc:'Organic, ethically sourced textiles. Best-in-class labor practices.',col:'#EC4899'},
-  {id:'quickstitch',name:'QuickStitch Factory',ind:'Textiles',bp:28,sust:15,co2:'C',lab:'F',wst:'D',cert:[],desc:'Ultra-low cost, documented labor violations. Maximum exposure to audits.',col:'#6B7280'}
+const SUP=[
+  {id:'greenleaf',name:'GreenLeaf Electronics',ind:'Electronics',bp:120,sust:85,co2:'A',lab:'A',wst:'B+',cert:['ISO 14001','Fair Trade'],desc:'Premium eco-electronics. Exceptional ESG resilience.',col:'#3DD8C0'},
+  {id:'cheapchip',name:'CheapChip Inc.',ind:'Electronics',bp:45,sust:25,co2:'D',lab:'C',wst:'D',cert:[],desc:'Budget electronics, minimal sustainability. Hidden regulatory risk.',col:'#D62839'},
+  {id:'ecopack',name:'EcoPack Solutions',ind:'Packaging',bp:85,sust:78,co2:'B+',lab:'A',wst:'A',cert:['FSC','B Corp'],desc:'Biodegradable packaging innovator. Circular economy aligned.',col:'#14B8A6'},
+  {id:'bulkwrap',name:'BulkWrap Global',ind:'Packaging',bp:35,sust:20,co2:'D',lab:'D',wst:'F',cert:[],desc:'Plastic-heavy, rock-bottom pricing. Major regulatory exposure.',col:'#F97316'},
+  {id:'swiftlog',name:'SwiftLog Renewables',ind:'Logistics',bp:100,sust:72,co2:'A',lab:'B',wst:'B',cert:['Carbon Neutral','EV Fleet'],desc:'Electric fleet logistics. Energy independence & cost stability.',col:'#1A6BF0'},
+  {id:'fastfreight',name:'FastFreight Ltd.',ind:'Logistics',bp:55,sust:30,co2:'D',lab:'C',wst:'C',cert:[],desc:'Traditional diesel fleet. Exposed to carbon pricing.',col:'#7C3AED'},
+  {id:'fairthread',name:'FairThread Textiles',ind:'Textiles',bp:95,sust:82,co2:'B',lab:'A+',wst:'A',cert:['GOTS','Fair Trade','OEKO-TEX'],desc:'Organic, ethically sourced. Best-in-class labor practices.',col:'#EC4899'},
+  {id:'quickstitch',name:'QuickStitch Factory',ind:'Textiles',bp:28,sust:15,co2:'C',lab:'F',wst:'D',cert:[],desc:'Ultra-low cost, documented labor violations. Maximum exposure.',col:'#6B7280'}
 ];
-const EV=[
-  {ic:'🏛️',t:'Carbon Tax Regulation',tx:'New regulation imposes heavy penalties on high-carbon emitters. Low-carbon suppliers see demand surge.',im:{greenleaf:15,cheapchip:-25,ecopack:10,bulkwrap:-20,swiftlog:18,fastfreight:-22,fairthread:8,quickstitch:-15}},
-  {ic:'📱',t:'Consumer ESG Backlash',tx:'Viral investigation exposes brands using suppliers with poor labor practices. Ethical supplier valuations surge.',im:{greenleaf:10,cheapchip:-18,ecopack:8,bulkwrap:-10,swiftlog:5,fastfreight:-5,fairthread:22,quickstitch:-30}},
-  {ic:'💡',t:'Green Innovation Breakthrough',tx:'Eco-friendly suppliers achieve cost parity through next-gen recycling. The sustainability cost premium narrows dramatically.',im:{greenleaf:20,cheapchip:-8,ecopack:18,bulkwrap:-12,swiftlog:12,fastfreight:-5,fairthread:15,quickstitch:-8}},
-  {ic:'⚡',t:'Energy Price Spike',tx:'Energy crisis hammers suppliers without renewables. Fossil-fuel dependent operations face margin compression.',im:{greenleaf:8,cheapchip:-20,ecopack:5,bulkwrap:-18,swiftlog:14,fastfreight:-25,fairthread:3,quickstitch:-12}},
-  {ic:'🌊',t:'Climate Disaster Disruption',tx:'Major flooding disrupts global logistics. Suppliers with diversified, resilient operations recover weeks ahead.',im:{greenleaf:5,cheapchip:-15,ecopack:8,bulkwrap:-22,swiftlog:3,fastfreight:-18,fairthread:6,quickstitch:-20}},
-  {ic:'📊',t:'ESG Fund Inflows',tx:'Record institutional capital pours into ESG-rated supply chains. Certified suppliers see valuation multiples expand.',im:{greenleaf:18,cheapchip:-5,ecopack:15,bulkwrap:-8,swiftlog:12,fastfreight:-3,fairthread:16,quickstitch:-10}},
-  {ic:'📉',t:'Budget Crunch Quarter',tx:'Economic downturn forces severe procurement cuts. Cost-focused suppliers temporarily gain despite elevated risk.',im:{greenleaf:-8,cheapchip:15,ecopack:-5,bulkwrap:12,swiftlog:-6,fastfreight:10,fairthread:-7,quickstitch:18}},
-  {ic:'⚖️',t:'Modern Slavery Audit',tx:'Industry-wide forced labor audit reveals violations. Ethically certified suppliers gain significant trust premium.',im:{greenleaf:8,cheapchip:-12,ecopack:6,bulkwrap:-8,swiftlog:5,fastfreight:-5,fairthread:20,quickstitch:-35}},
-  {ic:'♻️',t:'Circular Economy Mandate',tx:'New law requires 50% recycled content. Waste-efficient suppliers positioned to comply; others face penalties.',im:{greenleaf:10,cheapchip:-15,ecopack:22,bulkwrap:-25,swiftlog:5,fastfreight:-8,fairthread:12,quickstitch:-10}},
-  {ic:'🏷️',t:'Commodity Price Crash',tx:'Raw material glut drops input costs. All benefit, but low-sustainability players capture disproportionate short-term gains.',im:{greenleaf:5,cheapchip:18,ecopack:4,bulkwrap:15,swiftlog:3,fastfreight:12,fairthread:4,quickstitch:14}},
-  {ic:'🏆',t:'Sustainability Awards',tx:'Major procurement awards spotlight ESG leaders. Winners attract premium contracts and reputational tailwinds.',im:{greenleaf:14,cheapchip:-3,ecopack:16,bulkwrap:-5,swiftlog:10,fastfreight:-2,fairthread:18,quickstitch:-4}},
-  {ic:'🛢️',t:'Geopolitical Supply Shock',tx:'Trade sanctions disrupt shipping lanes. Localized sustainable suppliers with shorter supply chains prove resilient.',im:{greenleaf:12,cheapchip:-20,ecopack:8,bulkwrap:-15,swiftlog:10,fastfreight:-22,fairthread:8,quickstitch:-18}}
+const EVT=[
+  {ic:'ev-regulation',sym:'§',t:'Carbon Tax Regulation',tx:'Heavy penalties on high-carbon emitters. Low-carbon suppliers see demand surge.',im:{greenleaf:15,cheapchip:-25,ecopack:10,bulkwrap:-20,swiftlog:18,fastfreight:-22,fairthread:8,quickstitch:-15}},
+  {ic:'ev-consumer',sym:'◎',t:'Consumer ESG Backlash',tx:'Viral investigation exposes poor labor practices. Ethical suppliers surge.',im:{greenleaf:10,cheapchip:-18,ecopack:8,bulkwrap:-10,swiftlog:5,fastfreight:-5,fairthread:22,quickstitch:-30}},
+  {ic:'ev-innovation',sym:'◈',t:'Green Innovation Breakthrough',tx:'Eco-suppliers achieve cost parity through recycling tech.',im:{greenleaf:20,cheapchip:-8,ecopack:18,bulkwrap:-12,swiftlog:12,fastfreight:-5,fairthread:15,quickstitch:-8}},
+  {ic:'ev-energy',sym:'⚡',t:'Energy Price Spike',tx:'Energy crisis hammers fossil-dependent suppliers.',im:{greenleaf:8,cheapchip:-20,ecopack:5,bulkwrap:-18,swiftlog:14,fastfreight:-25,fairthread:3,quickstitch:-12}},
+  {ic:'ev-climate',sym:'◇',t:'Climate Disaster',tx:'Major flooding disrupts logistics. Resilient suppliers recover faster.',im:{greenleaf:5,cheapchip:-15,ecopack:8,bulkwrap:-22,swiftlog:3,fastfreight:-18,fairthread:6,quickstitch:-20}},
+  {ic:'ev-finance',sym:'△',t:'ESG Fund Inflows',tx:'Record capital into ESG-rated supply chains.',im:{greenleaf:18,cheapchip:-5,ecopack:15,bulkwrap:-8,swiftlog:12,fastfreight:-3,fairthread:16,quickstitch:-10}},
+  {ic:'ev-downturn',sym:'▽',t:'Budget Crunch Quarter',tx:'Economic downturn. Cost-focused suppliers gain temporarily.',im:{greenleaf:-8,cheapchip:15,ecopack:-5,bulkwrap:12,swiftlog:-6,fastfreight:10,fairthread:-7,quickstitch:18}},
+  {ic:'ev-labor',sym:'⬡',t:'Modern Slavery Audit',tx:'Industry-wide labor audit. Certified ethical suppliers gain trust.',im:{greenleaf:8,cheapchip:-12,ecopack:6,bulkwrap:-8,swiftlog:5,fastfreight:-5,fairthread:20,quickstitch:-35}},
+  {ic:'ev-circular',sym:'⟳',t:'Circular Economy Mandate',tx:'50% recycled content required. Waste-efficient suppliers thrive.',im:{greenleaf:10,cheapchip:-15,ecopack:22,bulkwrap:-25,swiftlog:5,fastfreight:-8,fairthread:12,quickstitch:-10}},
+  {ic:'ev-commodity',sym:'◆',t:'Commodity Price Crash',tx:'Raw material glut. Low-sustainability players get short-term gains.',im:{greenleaf:5,cheapchip:18,ecopack:4,bulkwrap:15,swiftlog:3,fastfreight:12,fairthread:4,quickstitch:14}},
+  {ic:'ev-awards',sym:'✦',t:'Sustainability Awards',tx:'ESG leaders win awards. Premium contracts & reputational boost.',im:{greenleaf:14,cheapchip:-3,ecopack:16,bulkwrap:-5,swiftlog:10,fastfreight:-2,fairthread:18,quickstitch:-4}},
+  {ic:'ev-geo',sym:'⊘',t:'Geopolitical Shock',tx:'Trade sanctions disrupt shipping. Localized suppliers prove resilient.',im:{greenleaf:12,cheapchip:-20,ecopack:8,bulkwrap:-15,swiftlog:10,fastfreight:-22,fairthread:8,quickstitch:-18}}
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
-let G={teams:[],ti:0,r:0,mr:6,bud:10000,sup:[],evts:[],used:[],on:false};
+let G={teams:[],ti:0,r:0,mr:6,bud:10000,sup:[],evts:[],used:[],
+  // Turn-based state
+  phase:'initial', // 'initial' | 'trading' | 'event' | 'done'
+  turnOrder:0,     // which team is currently active (index)
+  turnsComplete:[] // track which teams finished this round
+};
 
 // ═══════════════════════════════════════
 // SETUP
 // ═══════════════════════════════════════
-function addT(){const l=document.getElementById('tl');const n=l.children.length+1;const r=document.createElement('div');r.className='tr';r.innerHTML=`<input class="fi" placeholder="Team ${n}"><button class="rx" onclick="rmT(this)">×</button>`;l.appendChild(r);}
-function rmT(b){const l=document.getElementById('tl');if(l.children.length>1)b.parentElement.remove();}
+function addT(){const l=document.getElementById('tl');const r=document.createElement('div');r.className='tr';r.innerHTML=`<input class="fi" placeholder="Team ${l.children.length+1}"><button class="rx" onclick="rmT(this)">×</button>`;l.appendChild(r)}
+function rmT(b){const l=document.getElementById('tl');if(l.children.length>1)b.parentElement.remove()}
 
 function startGame(){
   const ins=[...document.querySelectorAll('#tl input')];
   const teams=ins.map((x,i)=>x.value.trim()||`Team ${i+1}`);
   if(!teams.length)return toast('Add a team','e');
-  G.mr=+document.getElementById('nR').value;
-  G.bud=+document.getElementById('nB').value;
-  G.r=0;G.evts=[];G.used=[];G.ti=0;
-  G.sup=S.map(s=>({...s,price:s.bp,hist:[s.bp]}));
+  G.mr=+document.getElementById('nR').value;G.bud=+document.getElementById('nB').value;
+  G.r=0;G.evts=[];G.used=[];G.turnOrder=0;G.turnsComplete=[];G.phase='initial';
+  G.sup=SUP.map(s=>({...s,price:s.bp,hist:[s.bp]}));
   G.teams=teams.map(n=>({name:n,coins:G.bud,hold:{}}));
-  G.on=true;
+  G.ti=0;
   show('gameScreen');
   document.getElementById('hCoin').style.display='';
   document.getElementById('tickerWrap').classList.add('active');
-  updHeader();renderTabs();renderGrid();updSide();renderDots();updateTicker();
-  toast('Exchange open — invest in suppliers','i');
-  sndBuy();
+  updHeader();updateTicker();
+
+  // Show first team's turn
+  showTurnTransition(0, true);
 }
 
 // ═══════════════════════════════════════
 // NAV
 // ═══════════════════════════════════════
-function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
-function updHeader(){document.getElementById('hRound').textContent=G.r===0?'Initial Trading':`Round ${G.r} / ${G.mr}`;}
-function renderDots(){document.getElementById('rdots').innerHTML=Array.from({length:G.mr},(_,i)=>{const c=i<G.r?'done':i===G.r&&G.r>0?'now':'';return`<div class="rdot ${c}"></div>`;}).join('');}
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active')}
+function updHeader(){document.getElementById('hRound').textContent=G.r===0?'Initial Trading':`Round ${G.r} / ${G.mr}`}
+function renderDots(){
+  const dotsHTML=Array.from({length:G.mr},(_,i)=>{const c=i<G.r?'done':i===G.r&&G.r>0?'now':'';return`<div class="rdot ${c}"></div>`}).join('');
+  return dotsHTML;
+}
 
 // ═══════════════════════════════════════
-// TICKER
+// TURN TRANSITION OVERLAY
 // ═══════════════════════════════════════
-function updateTicker(){
-  const t=document.getElementById('ticker');
-  const items=G.sup.map(s=>{
-    const prev=s.hist.length>1?s.hist[s.hist.length-2]:s.price;
-    const chg=s.price-prev;const cls=chg>0?'t-up':chg<0?'t-down':'';
-    return`<span class="ticker-item"><span class="t-name">${s.name.split(' ')[0]}</span> <span class="${cls}">${s.price.toFixed(0)} ${chg>=0?'▲':'▼'}${Math.abs(chg).toFixed(0)}</span><span class="t-sep">│</span></span>`;
+function showTurnTransition(teamIdx, isInitial=false){
+  G.ti=teamIdx;G.turnOrder=teamIdx;
+  const ov=document.getElementById('turnOv');
+  const team=G.teams[teamIdx];
+  const roundLabel=G.r===0?'Initial Trading Phase':`Round ${G.r} of ${G.mr}`;
+  const teamNum=teamIdx+1;
+  const totalTeams=G.teams.length;
+
+  ov.innerHTML=`
+    <div class="overlay-icon icon-trade"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+    <div class="to-label">${roundLabel}</div>
+    <div class="to-team">${team.name}</div>
+    <div class="to-sub">Team ${teamNum} of ${totalTeams} · Capital: ${team.coins.toLocaleString()} PC</div>
+    <button class="btn btn-em btn-lg to-btn" onclick="beginTurn()">Begin Trading →</button>
+  `;
+  ov.classList.add('active');
+  sndTurn();
+}
+
+function beginTurn(){
+  document.getElementById('turnOv').classList.remove('active');
+  renderAll();
+  toast(`${G.teams[G.ti].name} is now trading`, 'i');
+}
+
+// ═══════════════════════════════════════
+// RENDER ALL
+// ═══════════════════════════════════════
+function renderAll(){
+  renderBanner();renderTabs();renderActionBar();renderGrid();updSide();
+}
+
+// Turn banner
+function renderBanner(){
+  const team=G.teams[G.ti];
+  const initials=team.name.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
+  const roundLabel=G.r===0?'Initial Trading':`Round ${G.r}`;
+  const teamIdx=G.ti;
+  const total=G.teams.length;
+
+  // Progress dots
+  const dots=G.teams.map((_,i)=>{
+    const cls=G.turnsComplete.includes(i)?'done':i===G.ti?'active':'';
+    return`<div class="tp-dot ${cls}"></div>`;
   }).join('');
-  t.innerHTML=items+items; // duplicate for seamless scroll
-}
 
-// ═══════════════════════════════════════
-// TABS
-// ═══════════════════════════════════════
-function renderTabs(){document.getElementById('tabs').innerHTML=G.teams.map((t,i)=>`<div class="tab ${i===G.ti?'on':''}" onclick="swT(${i})">${t.name}</div>`).join('');}
-function swT(i){G.ti=i;renderTabs();renderGrid();updSide();}
-function cur(){return G.teams[G.ti];}
-
-// ═══════════════════════════════════════
-// SPARKLINES
-// ═══════════════════════════════════════
-function drawSpark(cid,data,color){
-  const c=document.getElementById(cid);if(!c)return;
-  const ctx=c.getContext('2d');const dpr=devicePixelRatio||1;
-  const rect=c.parentElement.getBoundingClientRect();
-  c.width=rect.width*dpr;c.height=rect.height*dpr;
-  c.style.width=rect.width+'px';c.style.height=rect.height+'px';
-  ctx.scale(dpr,dpr);
-  const w=rect.width,h=rect.height,pad=4;
-  if(data.length<2)return;
-  const mn=Math.min(...data),mx=Math.max(...data),rng=mx-mn||1;
-  const pts=data.map((v,i)=>({x:pad+(i/(data.length-1))*(w-2*pad),y:pad+(1-(v-mn)/rng)*(h-2*pad)}));
-  const grad=ctx.createLinearGradient(0,0,0,h);
-  grad.addColorStop(0,color+'18');grad.addColorStop(1,color+'00');
-  ctx.beginPath();ctx.moveTo(pts[0].x,h);pts.forEach(p=>ctx.lineTo(p.x,p.y));ctx.lineTo(pts[pts.length-1].x,h);ctx.closePath();ctx.fillStyle=grad;ctx.fill();
-  ctx.beginPath();ctx.moveTo(pts[0].x,pts[0].y);
-  for(let i=1;i<pts.length;i++){const cx=(pts[i-1].x+pts[i].x)/2;ctx.bezierCurveTo(cx,pts[i-1].y,cx,pts[i].y,pts[i].x,pts[i].y);}
-  ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();
-  const l=pts[pts.length-1];ctx.beginPath();ctx.arc(l.x,l.y,3.5,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();
-  ctx.beginPath();ctx.arc(l.x,l.y,7,0,Math.PI*2);ctx.fillStyle=color+'18';ctx.fill();
-}
-
-// ═══════════════════════════════════════
-// SUPPLIER GRID
-// ═══════════════════════════════════════
-function sl(s){return s>=60?'h':s>=35?'m':'l';}
-function ec(g){return['A+','A','A-','B+'].includes(g)?'esg-a':['B','B-','C+','C'].includes(g)?'esg-b':'esg-c';}
-
-function renderGrid(){
-  const team=cur();const grid=document.getElementById('sgrid');
-  grid.innerHTML=G.sup.map(s=>{
-    const lv=sl(s.sust);const held=team.hold[s.id]||0;
-    const prev=s.hist.length>1?s.hist[s.hist.length-2]:s.price;
-    const chg=s.price-prev;const pct=prev?((chg/prev)*100).toFixed(1):'0.0';
-    const cls=chg>0?'up':chg<0?'down':'flat';
-    const ar=chg>0?'▲':chg<0?'▼':'—';
-    const bc=lv==='h'?'var(--emerald)':lv==='m'?'var(--amber)':'var(--red)';
-    const st=lv==='h'?'stripe-h':lv==='m'?'stripe-m':'stripe-l';
-    return`<div class="sc"><div class="stripe ${st}"></div>
-      <div class="sc-top"><div><div class="sc-name">${s.name}</div><div class="sc-ind">${s.ind}</div></div>
-      <div class="sc-pr"><div class="sc-price ${cls}" id="pr-${s.id}">${s.price.toFixed(0)}<span style="font-size:12px;font-weight:300"> PC</span></div><div class="sc-chg ${cls}">${ar} ${Math.abs(chg).toFixed(0)} (${chg>=0?'+':''}${pct}%)</div></div></div>
-      <div class="spark-wrap"><canvas class="spark-cv" id="sp-${s.id}"></canvas></div>
-      <div class="esg-row">
-        <span class="esg ${ec(s.co2)}">CO₂ ${s.co2}</span><span class="esg ${ec(s.lab)}">Labor ${s.lab}</span><span class="esg ${ec(s.wst)}">Waste ${s.wst}</span>
-        ${s.cert.map(c=>`<span class="esg esg-cert">${c}</span>`).join('')}
+  document.getElementById('turnBanner').innerHTML=`
+    <div class="tb-left">
+      <div class="tb-avatar">${initials}</div>
+      <div class="tb-info">
+        <div class="tb-team">${team.name}'s Turn</div>
+        <div class="tb-detail">${roundLabel} · Cash: <strong>${team.coins.toLocaleString()} PC</strong></div>
       </div>
-      <div class="sust-bar"><div class="sust-track"><div class="sust-fill" style="width:${s.sust}%;background:${bc}"></div></div><div class="sust-lbl"><span>Sustainability</span><span>${s.sust}%</span></div></div>
-      <div class="sc-desc">${s.desc}</div>
-      <div class="trade"><button class="tb bb" onclick="trade('${s.id}','b',event)">Buy</button><input type="number" class="tq" id="q-${s.id}" value="1" min="1"><button class="tb sb" onclick="trade('${s.id}','s',event)">Sell</button></div>
-      <div class="held">${held>0?`Holding ${held} share${held>1?'s':''} · ${(held*s.price).toFixed(0)} PC`:'No position'}</div>
-    </div>`;
+    </div>
+    <div class="tb-right">
+      <div class="team-progress">${dots}</div>
+    </div>
+  `;
+}
+
+// Tabs (read-only, showing who's done)
+function renderTabs(){
+  document.getElementById('tabs').innerHTML=G.teams.map((t,i)=>{
+    const cls=i===G.ti?'on':G.turnsComplete.includes(i)?'completed-tab':'waiting';
+    const label=G.turnsComplete.includes(i)?'✓ '+t.name:t.name;
+    return`<div class="tab ${cls}">${label}</div>`;
   }).join('');
-  document.getElementById('coinAmt').textContent=cur().coins.toLocaleString();
-  requestAnimationFrame(()=>G.sup.forEach(s=>drawSpark(`sp-${s.id}`,s.hist,s.col)));
 }
 
-// ═══════════════════════════════════════
-// TRADING
-// ═══════════════════════════════════════
-function trade(sid,act,evt){
-  const team=cur();const sup=G.sup.find(s=>s.id===sid);
-  const qty=parseInt(document.getElementById(`q-${sid}`).value)||1;
-  if(act==='b'){
-    const cost=sup.price*qty;
-    if(cost>team.coins)return toast(`Need ${cost.toFixed(0)} PC — insufficient capital`,'e');
-    team.coins-=cost;team.hold[sid]=(team.hold[sid]||0)+qty;
-    toast(`Acquired ${qty}× ${sup.name.split(' ')[0]} for ${cost.toFixed(0)} PC`,'s');
-    sndBuy();
-    if(evt)burstParticles(evt.clientX,evt.clientY,sup.col,8);
+// Action bar
+function renderActionBar(){
+  const isLast=G.ti===G.teams.length-1 && !G.turnsComplete.includes(G.ti);
+  const allDone=G.turnsComplete.length===G.teams.length;
+  const gameComplete=G.r>=G.mr && allDone;
+
+  let btns='';
+  if(G.phase==='done'){
+    btns=`<button class="btn btn-gold btn-lg" onclick="endGame()">🏁 View Final Results</button>`;
   } else {
-    const held=team.hold[sid]||0;
-    if(held<qty)return toast(`Only holding ${held} shares`,'e');
-    team.coins+=sup.price*qty;team.hold[sid]-=qty;
-    if(!team.hold[sid])delete team.hold[sid];
-    toast(`Sold ${qty}× ${sup.name.split(' ')[0]} for ${(sup.price*qty).toFixed(0)} PC`,'s');
-    sndSell();
-    if(evt)burstParticles(evt.clientX,evt.clientY,'#D62839',8);
+    btns=`<button class="btn btn-amber" onclick="endTurn()">✓ End Turn</button>`;
+    if(G.r>0 && G.r>=G.mr && G.ti===G.teams.length-1){
+      // Last team in last round - show end game after turn
+    }
   }
-  renderGrid();updSide();
+
+  document.getElementById('abar').innerHTML=`${btns}<div class="rdots">${renderDots()}</div>`;
 }
 
 // ═══════════════════════════════════════
-// DONUT CHART
+// END TURN LOGIC
 // ═══════════════════════════════════════
-function renderDonut(entries,holdVal){
-  const svg=document.getElementById('donutSvg');
-  const leg=document.getElementById('donutLeg');
-  // Remove old segments
-  svg.querySelectorAll('.seg').forEach(e=>e.remove());
-  if(!entries.length){leg.innerHTML='';return;}
-  const circumference=2*Math.PI*16; // r=16
-  let offset=0;
-  const segs=[];
-  entries.forEach(([id,qty])=>{
-    const s=G.sup.find(x=>x.id===id);
-    const val=s.price*qty;
-    const pct=holdVal>0?val/holdVal:0;
-    const dash=pct*circumference;
-    segs.push({name:s.name.split(' ')[0],color:s.col,pct,dash,offset});
-    offset+=dash;
+function endTurn(){
+  G.turnsComplete.push(G.ti);
+  sndTurn();
+
+  // Check if all teams have traded this cycle
+  if(G.turnsComplete.length === G.teams.length){
+    // All teams done → trigger event (or start first round event)
+    G.turnsComplete=[];
+
+    if(G.r===0){
+      // Initial trading done → start Round 1
+      triggerNewRound();
+    } else if(G.r < G.mr){
+      // Mid-game → next round
+      triggerNewRound();
+    } else {
+      // Final round complete → end game
+      G.phase='done';
+      toast('All rounds complete!','i');
+      // Show end game overlay
+      const ov=document.getElementById('turnOv');
+      ov.innerHTML=`
+        <div class="overlay-icon icon-complete"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="to-label">Simulation Complete</div>
+        <div class="to-team">Final Analysis</div>
+        <div class="to-sub">All ${G.mr} rounds completed · VMC Consulting Sustainability Index applied</div>
+        <button class="btn btn-gold btn-lg to-btn" onclick="document.getElementById('turnOv').classList.remove('active');endGame()">View Results →</button>
+      `;
+      ov.classList.add('active');
+      sndWin();
+    }
+  } else {
+    // Next team's turn
+    const nextIdx=G.ti+1;
+    showTurnTransition(nextIdx);
+  }
+}
+
+// ═══════════════════════════════════════
+// NEW ROUND (countdown + event)
+// ═══════════════════════════════════════
+async function triggerNewRound(){
+  G.r++;
+  updHeader();
+
+  // Cinematic countdown
+  await showCountdown(G.r);
+
+  // Pick event
+  let avail=EVT.filter((_,i)=>!G.used.includes(i));
+  if(!avail.length){G.used=[];avail=EVT}
+  const idx=EVT.indexOf(avail[Math.floor(Math.random()*avail.length)]);
+  G.used.push(idx);const ev=EVT[idx];
+
+  // Apply impacts
+  let negCount=0;const impacts={};
+  G.sup.forEach(s=>{
+    const base=ev.im[s.id]||0;const noise=(Math.random()-.5)*10;
+    const pct=(base+noise)/100;const np=Math.max(5,s.price*(1+pct));
+    impacts[s.id]={old:s.price,new:np,chg:np-s.price};
+    if(np<s.price)negCount++;
+    s.price=Math.round(np*100)/100;s.hist.push(s.price);
   });
-  segs.reverse().forEach(seg=>{
-    const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');
-    circle.setAttribute('cx','21');circle.setAttribute('cy','21');circle.setAttribute('r','16');
-    circle.setAttribute('stroke',seg.color);circle.setAttribute('stroke-width','10');circle.setAttribute('fill','none');
-    circle.setAttribute('stroke-dasharray',`${seg.dash} ${circumference-seg.dash}`);
-    circle.setAttribute('stroke-dashoffset',`${-seg.offset}`);
-    circle.classList.add('seg');
-    svg.appendChild(circle);
-  });
-  leg.innerHTML=segs.reverse().map(s=>`<div class="dl-item"><div class="dl-dot" style="background:${s.color}"></div>${s.name} ${(s.pct*100).toFixed(0)}%</div>`).join('');
+  G.evts.push(ev);updateTicker();
+
+  if(negCount>=5)document.getElementById('app').classList.add('shake');
+  setTimeout(()=>document.getElementById('app').classList.remove('shake'),500);
+  sndEvent();
+
+  // Show event modal — on close, start Team 1's turn
+  showEvModal(ev,impacts);
 }
 
-// ═══════════════════════════════════════
-// SIDEBAR
-// ═══════════════════════════════════════
-function updSide(){
-  const team=cur();const entries=Object.entries(team.hold);const list=document.getElementById('pList');
-  let hv=0;
-  entries.forEach(([id,qty])=>{const s=G.sup.find(x=>x.id===id);hv+=s.price*qty;});
-  renderDonut(entries,hv);
-  list.innerHTML=entries.length?entries.map(([id,qty])=>{
-    const s=G.sup.find(x=>x.id===id);
-    return`<div class="pi"><span class="pn">${s.name} <span class="pq">×${qty}</span></span><span class="pv">${(s.price*qty).toFixed(0)} PC</span></div>`;
-  }).join(''):'<div style="color:var(--faint);font-size:12px;padding:6px 0">No positions yet</div>';
-  document.getElementById('pTotal').textContent=(team.coins+hv).toLocaleString()+' PC';
-  document.getElementById('coinAmt').textContent=team.coins.toLocaleString();
-  const log=document.getElementById('eLog');
-  log.innerHTML=G.evts.length?G.evts.slice().reverse().map((e,i)=>`<div class="el-item"><div class="el-r">Round ${G.evts.length-i}</div><div class="el-t">${e.ic} ${e.t}</div></div>`).join(''):'<div style="color:var(--faint);font-size:11px">No events yet</div>';
-}
-
-// ═══════════════════════════════════════
-// CINEMATIC COUNTDOWN
-// ═══════════════════════════════════════
-function showCountdown(roundNum){
+function showCountdown(rn){
   return new Promise(resolve=>{
-    const ov=document.getElementById('cdOverlay');
-    ov.classList.add('active');
-    let step=0;
-    const steps=['3','2','1','GO'];
+    const ov=document.getElementById('cdOv');ov.classList.add('active');
+    const steps=['3','2','1'];let step=0;
     function next(){
-      if(step>=steps.length){ov.classList.remove('active');resolve();return;}
-      const val=steps[step];
-      if(val==='GO'){
-        ov.innerHTML=`<div class="cd-round-label">Round ${roundNum}</div>`;
-        sndCountdown();
-        setTimeout(()=>{ov.classList.remove('active');resolve();},700);
-      } else {
-        ov.innerHTML=`<div class="cd-number" style="animation-duration:.65s">${val}</div><div class="cd-label">Get Ready</div>`;
-        sndCountdown();
-        setTimeout(()=>{step++;next();},700);
+      if(step>=steps.length){
+        ov.innerHTML=`<div class="cd-round">Round ${rn}</div>`;
+        sndTick();
+        setTimeout(()=>{ov.classList.remove('active');resolve()},700);
+        return;
       }
-      step++;
+      ov.innerHTML=`<div class="cd-num">${steps[step]}</div><div class="cd-label">VMC Market Update</div>`;
+      sndTick();step++;
+      setTimeout(next,700);
     }
     next();
   });
 }
 
 // ═══════════════════════════════════════
-// ROUNDS
+// EVENT MODAL
 // ═══════════════════════════════════════
-async function nextRound(){
-  if(G.r>=G.mr)return toast('All rounds done — end the game','i');
-  G.r++;updHeader();renderDots();
-
-  await showCountdown(G.r);
-
-  let avail=EV.filter((_,i)=>!G.used.includes(i));
-  if(!avail.length){G.used=[];avail=EV;}
-  const idx=EV.indexOf(avail[Math.floor(Math.random()*avail.length)]);
-  G.used.push(idx);const ev=EV[idx];
-
-  // Check if mostly negative event for shake
-  let negCount=0;
-  const impacts={};
-  G.sup.forEach(s=>{
-    const base=ev.im[s.id]||0;
-    const noise=(Math.random()-.5)*10;
-    const pct=(base+noise)/100;
-    const np=Math.max(5,s.price*(1+pct));
-    impacts[s.id]={old:s.price,new:np,chg:np-s.price};
-    if(np<s.price)negCount++;
-    s.price=Math.round(np*100)/100;
-    s.hist.push(s.price);
-  });
-  G.evts.push(ev);
-  updateTicker();
-
-  if(negCount>=5)document.getElementById('app').classList.add('shake');
-  setTimeout(()=>document.getElementById('app').classList.remove('shake'),500);
-
-  sndEvent();
-  showEvModal(ev,impacts);
-}
-
 function showEvModal(ev,impacts){
   const mc=document.getElementById('eMoC');
   const maxI=Math.max(...Object.values(impacts).map(i=>Math.abs(i.chg)));
@@ -748,70 +714,168 @@ function showEvModal(ev,impacts){
     const bc=chg>=0?'pos':'neg';
     return`<tr><td style="font-weight:500">${s.name}</td><td><div class="imp-bar-wrap"><div class="imp-bar-bg"><div class="imp-bar ${bc}" style="width:${bw}%"></div></div></div></td><td class="${cls}">${chg>0?'+':''}${chg.toFixed(0)} (${chg>0?'+':''}${pct}%)</td></tr>`;
   }).join('');
-  mc.innerHTML=`<div class="mo-flash">⚡ Market Event — Round ${G.r} ⚡</div>
-    <div class="mo-body"><span class="mo-icon">${ev.ic}</span><div class="mo-title">${ev.t}</div><div class="mo-desc">${ev.tx}</div>
+  mc.innerHTML=`<div class="mo-flash">⚡ VMC MARKET INTELLIGENCE — ROUND ${G.r} ⚡</div>
+    <div class="mo-body"><div class="mo-icon-box ${ev.ic}" style="animation:moIconIn .6s .2s cubic-bezier(.16,1,.3,1) both"><span style="font-size:28px;color:#fff;font-weight:700">${ev.sym}</span></div><div class="mo-title">${ev.t}</div><div class="mo-desc">${ev.tx}</div>
     <table class="imp-tbl"><thead><tr><th>Supplier</th><th>Impact</th><th>Change</th></tr></thead><tbody>${rows}</tbody></table>
-    <button class="btn btn-navy btn-block" onclick="closeEv()">Continue Trading →</button></div>`;
+    <button class="btn btn-navy btn-block" onclick="closeEv()">Begin Trading Round ${G.r} →</button></div>`;
   document.getElementById('eMo').classList.add('active');
 }
+
 function closeEv(){
   document.getElementById('eMo').classList.remove('active');
-  renderGrid();updSide();
-  if(G.r>=G.mr){document.getElementById('nrBtn').disabled=true;document.getElementById('nrBtn').textContent='✓ Complete';toast('All rounds done — end the game when ready','i');}
+  // Start Team 1's turn for this round
+  showTurnTransition(0);
 }
 
 // ═══════════════════════════════════════
-// ANIMATED COUNTER
+// TICKER
 // ═══════════════════════════════════════
-function animateValue(el,start,end,dur=800){
-  const t0=performance.now();
-  function step(now){
-    const p=Math.min((now-t0)/dur,1);
-    const ease=1-Math.pow(1-p,3);
-    el.textContent=Math.round(start+ease*(end-start)).toLocaleString();
-    if(p<1)requestAnimationFrame(step);
+function updateTicker(){
+  const t=document.getElementById('ticker');
+  const items=G.sup.map(s=>{
+    const prev=s.hist.length>1?s.hist[s.hist.length-2]:s.price;
+    const chg=s.price-prev;const cls=chg>0?'t-up':chg<0?'t-down':'';
+    return`<span class="ticker-item"><span class="t-name">${s.name.split(' ')[0]}</span> <span class="${cls}">${s.price.toFixed(0)} ${chg>=0?'↑':'↓'}${Math.abs(chg).toFixed(0)}</span><span class="t-sep">│</span></span>`;
+  }).join('');
+  t.innerHTML=items+items;
+}
+
+// ═══════════════════════════════════════
+// SPARKLINES
+// ═══════════════════════════════════════
+function drawSpark(cid,data,color){
+  const c=document.getElementById(cid);if(!c)return;
+  const ctx=c.getContext('2d');const dpr=devicePixelRatio||1;
+  const rect=c.parentElement.getBoundingClientRect();
+  c.width=rect.width*dpr;c.height=rect.height*dpr;
+  c.style.width=rect.width+'px';c.style.height=rect.height+'px';
+  ctx.scale(dpr,dpr);const w=rect.width,h=rect.height,pad=4;
+  if(data.length<2)return;
+  const mn=Math.min(...data),mx=Math.max(...data),rng=mx-mn||1;
+  const pts=data.map((v,i)=>({x:pad+(i/(data.length-1))*(w-2*pad),y:pad+(1-(v-mn)/rng)*(h-2*pad)}));
+  const grad=ctx.createLinearGradient(0,0,0,h);grad.addColorStop(0,color+'18');grad.addColorStop(1,color+'00');
+  ctx.beginPath();ctx.moveTo(pts[0].x,h);pts.forEach(p=>ctx.lineTo(p.x,p.y));ctx.lineTo(pts[pts.length-1].x,h);ctx.closePath();ctx.fillStyle=grad;ctx.fill();
+  ctx.beginPath();ctx.moveTo(pts[0].x,pts[0].y);
+  for(let i=1;i<pts.length;i++){const cx=(pts[i-1].x+pts[i].x)/2;ctx.bezierCurveTo(cx,pts[i-1].y,cx,pts[i].y,pts[i].x,pts[i].y)}
+  ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();
+  const l=pts[pts.length-1];ctx.beginPath();ctx.arc(l.x,l.y,3.5,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();
+  ctx.beginPath();ctx.arc(l.x,l.y,7,0,Math.PI*2);ctx.fillStyle=color+'18';ctx.fill();
+}
+
+// ═══════════════════════════════════════
+// SUPPLIER GRID
+// ═══════════════════════════════════════
+function sl(s){return s>=60?'h':s>=35?'m':'l'}
+function ec(g){return['A+','A','A-','B+'].includes(g)?'esg-a':['B','B-','C+','C'].includes(g)?'esg-b':'esg-c'}
+
+function renderGrid(){
+  const team=G.teams[G.ti];const grid=document.getElementById('sgrid');
+  grid.innerHTML=G.sup.map(s=>{
+    const lv=sl(s.sust);const held=team.hold[s.id]||0;
+    const prev=s.hist.length>1?s.hist[s.hist.length-2]:s.price;
+    const chg=s.price-prev;const pct=prev?((chg/prev)*100).toFixed(1):'0.0';
+    const cls=chg>0?'up':chg<0?'down':'flat';
+    const ar=chg>0?'↑':chg<0?'↓':'—';
+    const bc=lv==='h'?'var(--emerald)':lv==='m'?'var(--amber)':'var(--red)';
+    const st=lv==='h'?'stripe-h':lv==='m'?'stripe-m':'stripe-l';
+    return`<div class="sc"><div class="stripe ${st}"></div>
+      <div class="sc-top"><div><div class="sc-name">${s.name}</div><div class="sc-ind">${s.ind}</div></div>
+      <div class="sc-pr"><div class="sc-price ${cls}">${s.price.toFixed(0)}<span style="font-size:12px;font-weight:300"> PC</span></div><div class="sc-chg ${cls}">${ar} ${Math.abs(chg).toFixed(0)} (${chg>=0?'+':''}${pct}%)</div></div></div>
+      <div class="spark-wrap"><canvas class="spark-cv" id="sp-${s.id}"></canvas></div>
+      <div class="esg-row"><span class="esg ${ec(s.co2)}">CO₂ ${s.co2}</span><span class="esg ${ec(s.lab)}">Labor ${s.lab}</span><span class="esg ${ec(s.wst)}">Waste ${s.wst}</span>${s.cert.map(c=>`<span class="esg esg-cert">${c}</span>`).join('')}</div>
+      <div class="sust-bar"><div class="sust-track"><div class="sust-fill" style="width:${s.sust}%;background:${bc}"></div></div><div class="sust-lbl"><span>Sustainability</span><span>${s.sust}%</span></div></div>
+      <div class="sc-desc">${s.desc}</div>
+      <div class="trade"><button class="tb-trade bb" onclick="trade('${s.id}','b',event)">Buy</button><input type="number" class="tq" id="q-${s.id}" value="1" min="1"><button class="tb-trade sb" onclick="trade('${s.id}','s',event)">Sell</button></div>
+      <div class="held">${held>0?`Holding ${held} share${held>1?'s':''} · ${(held*s.price).toFixed(0)} PC`:'No position'}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('coinAmt').textContent=G.teams[G.ti].coins.toLocaleString();
+  requestAnimationFrame(()=>G.sup.forEach(s=>drawSpark(`sp-${s.id}`,s.hist,s.col)));
+}
+
+// ═══════════════════════════════════════
+// TRADING
+// ═══════════════════════════════════════
+function trade(sid,act,evt){
+  const team=G.teams[G.ti];const sup=G.sup.find(s=>s.id===sid);
+  const qty=parseInt(document.getElementById(`q-${sid}`).value)||1;
+  if(act==='b'){
+    const cost=sup.price*qty;
+    if(cost>team.coins)return toast(`Need ${cost.toFixed(0)} PC — insufficient`,'e');
+    team.coins-=cost;team.hold[sid]=(team.hold[sid]||0)+qty;
+    toast(`Acquired ${qty}× ${sup.name.split(' ')[0]} for ${cost.toFixed(0)} PC`,'s');
+    sndBuy();if(evt)burst(evt.clientX,evt.clientY,sup.col,8);
+  } else {
+    const held=team.hold[sid]||0;
+    if(held<qty)return toast(`Only holding ${held} shares`,'e');
+    team.coins+=sup.price*qty;team.hold[sid]-=qty;
+    if(!team.hold[sid])delete team.hold[sid];
+    toast(`Sold ${qty}× ${sup.name.split(' ')[0]} for ${(sup.price*qty).toFixed(0)} PC`,'s');
+    sndSell();if(evt)burst(evt.clientX,evt.clientY,'#D62839',8);
   }
-  requestAnimationFrame(step);
+  renderGrid();updSide();renderBanner();
+}
+
+// ═══════════════════════════════════════
+// DONUT
+// ═══════════════════════════════════════
+function renderDonut(entries,hv){
+  const svg=document.getElementById('donutSvg');const leg=document.getElementById('donutLeg');
+  svg.querySelectorAll('.seg').forEach(e=>e.remove());
+  if(!entries.length){leg.innerHTML='';return}
+  const circ=2*Math.PI*16;let off=0;const segs=[];
+  entries.forEach(([id,qty])=>{const s=G.sup.find(x=>x.id===id);const val=s.price*qty;const pct=hv>0?val/hv:0;const d=pct*circ;segs.push({name:s.name.split(' ')[0],color:s.col,pct,d,off});off+=d});
+  segs.reverse().forEach(seg=>{const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx','21');c.setAttribute('cy','21');c.setAttribute('r','16');c.setAttribute('stroke',seg.color);c.setAttribute('stroke-width','10');c.setAttribute('fill','none');c.setAttribute('stroke-dasharray',`${seg.d} ${circ-seg.d}`);c.setAttribute('stroke-dashoffset',`${-seg.off}`);c.classList.add('seg');svg.appendChild(c)});
+  leg.innerHTML=segs.reverse().map(s=>`<div class="dl-item"><div class="dl-dot" style="background:${s.color}"></div>${s.name} ${(s.pct*100).toFixed(0)}%</div>`).join('');
+}
+
+// ═══════════════════════════════════════
+// SIDEBAR
+// ═══════════════════════════════════════
+function updSide(){
+  const team=G.teams[G.ti];const entries=Object.entries(team.hold);
+  let hv=0;entries.forEach(([id,qty])=>{hv+=G.sup.find(x=>x.id===id).price*qty});
+  renderDonut(entries,hv);
+  document.getElementById('pList').innerHTML=entries.length?entries.map(([id,qty])=>{const s=G.sup.find(x=>x.id===id);return`<div class="pi"><span class="pn">${s.name} <span class="pq">×${qty}</span></span><span class="pv">${(s.price*qty).toFixed(0)} PC</span></div>`}).join(''):'<div style="color:var(--faint);font-size:12px;padding:6px 0">No positions yet</div>';
+  document.getElementById('pTotal').textContent=(team.coins+hv).toLocaleString()+' PC';
+  document.getElementById('coinAmt').textContent=team.coins.toLocaleString();
+  document.getElementById('eLog').innerHTML=G.evts.length?G.evts.slice().reverse().map((e,i)=>`<div class="el-item"><div class="el-r">Round ${G.evts.length-i}</div><div class="el-t"><span style="font-weight:700;margin-right:4px">${e.sym}</span> ${e.t}</div></div>`).join(''):'<div style="color:var(--faint);font-size:11px">No events yet</div>';
 }
 
 // ═══════════════════════════════════════
 // RESULTS
 // ═══════════════════════════════════════
 function endGame(){
-  const results=G.teams.map(team=>{
+  const R=G.teams.map(team=>{
     let hv=0,ws=0,ts=0;
-    Object.entries(team.hold).forEach(([id,qty])=>{const s=G.sup.find(x=>x.id===id);hv+=s.price*qty;ws+=s.sust*qty;ts+=qty;});
+    Object.entries(team.hold).forEach(([id,qty])=>{const s=G.sup.find(x=>x.id===id);hv+=s.price*qty;ws+=s.sust*qty;ts+=qty});
     const raw=team.coins+hv;const avg=ts?ws/ts:0;
     let m=1;if(avg>=80)m=1.35;else if(avg>=65)m=1.2;else if(avg>=50)m=1.1;else if(avg>=35)m=1;else if(avg>=20)m=.9;else m=.75;
     return{name:team.name,coins:team.coins,hv:Math.round(hv),raw:Math.round(raw),avg:Math.round(avg),m,fin:Math.round(raw*m),hold:{...team.hold}};
   }).sort((a,b)=>b.fin-a.fin);
-  renderRes(results);show('resultsScreen');
+  renderRes(R);show('resultsScreen');
   document.getElementById('tickerWrap').classList.remove('active');
   launchConfetti();sndWin();
 }
 
+function animVal(el,start,end,dur=800){const t0=performance.now();function step(now){const p=Math.min((now-t0)/dur,1);const e=1-Math.pow(1-p,3);el.textContent=Math.round(start+e*(end-start)).toLocaleString();if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
+
 function renderRes(R){
   const c=document.getElementById('resC');
-  const lbs=R.map((r,i)=>`<div class="lbc ${i===0?'win':''}"><div class="lbc-rank">${i===0?'🥇':i===1?'🥈':i===2?'🥉':'#'+(i+1)}</div><div class="lbc-name">${r.name}</div><div class="lbc-col"><div class="lbc-cl">Portfolio</div><div class="lbc-cv">${r.raw.toLocaleString()}</div></div><div class="lbc-col"><div class="lbc-cl">ESG</div><div class="lbc-cv esg">${r.avg}%</div></div><div class="lbc-fin"><div class="lbc-cl">Final Score</div><div class="lbc-fv">${r.fin.toLocaleString()} PC</div><div class="mult-tag">×${r.m.toFixed(2)}</div></div></div>`).join('');
+  const lbs=R.map((r,i)=>`<div class="lbc ${i===0?'win':''}"><div class="lbc-rank">${i===0?'<span style="color:var(--gold-rich)">①</span>':i===1?'<span style="color:#94A3B8">②</span>':i===2?'<span style="color:#CD7F32">③</span>':'<span>#'+(i+1)+'</span>'}</div><div class="lbc-name">${r.name}</div><div class="lbc-col"><div class="lbc-cl">Portfolio</div><div class="lbc-cv">${r.raw.toLocaleString()}</div></div><div class="lbc-col"><div class="lbc-cl">ESG</div><div class="lbc-cv esg">${r.avg}%</div></div><div class="lbc-fin"><div class="lbc-cl">Final Score</div><div class="lbc-fv">${r.fin.toLocaleString()} PC</div><div class="mult-tag">×${r.m.toFixed(2)}</div></div></div>`).join('');
   const bds=R.map(r=>{
-    const hs=Object.entries(r.hold).map(([id,qty])=>{const s=G.sup.find(x=>x.id===id);return`<div class="bdc-row"><span class="l">${s.name} ×${qty} <span style="color:var(--faint);font-size:10px">(${s.sust}%)</span></span><span class="v">${(s.price*qty).toFixed(0)} PC</span></div>`;}).join('')||'<div style="color:var(--faint);font-size:12px">No holdings</div>';
+    const hs=Object.entries(r.hold).map(([id,qty])=>{const s=G.sup.find(x=>x.id===id);return`<div class="bdc-row"><span class="l">${s.name} ×${qty} <span style="color:var(--faint);font-size:10px">(${s.sust}%)</span></span><span class="v">${(s.price*qty).toFixed(0)} PC</span></div>`}).join('')||'<div style="color:var(--faint);font-size:12px">No holdings</div>';
     return`<div class="bdc"><div class="bdc-title">${r.name}</div>${hs}<div class="bdc-row"><span class="l">Cash</span><span class="v">${r.coins.toLocaleString()} PC</span></div><div class="bdc-row"><span class="l">ESG Score</span><span class="v" style="color:var(--emerald)">${r.avg}%</span></div><div class="bdc-row"><span class="l">Multiplier</span><span class="v">×${r.m.toFixed(2)}</span></div><div class="bdc-sum"><span>Final</span><span class="fv">${r.fin.toLocaleString()} PC</span></div></div>`;
   }).join('');
   const guide=[['80%+','×1.35','Resilient · Compliant · Brand-positive'],['65–79%','×1.20','Strong ESG'],['50–64%','×1.10','Moderate'],['35–49%','×1.00','Neutral'],['20–34%','×0.90','Risk penalty'],['<20%','×0.75','Severe exposure']].map(([r,m,n])=>`<div class="gr"><span class="rng">${r}</span><span class="nt">${n}</span><span class="ml">${m}</span></div>`).join('');
 
-  c.innerHTML=`<div class="res-hero"><div class="res-spotlight"></div><span class="res-crown">🏆</span><h2 class="res-h2">${R[0].name} Wins</h2><div class="res-sub">Final rankings after ${G.mr} rounds · Sustainability multipliers applied</div></div>
+  c.innerHTML=`<div class="res-hero"><div class="res-spotlight"></div><div class="res-trophy"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M8 21h8m-4-4v4m-5-8a5 5 0 0110 0V6H7v7zm-4-7h4M17 6h4m-4 0a4 4 0 004 4m-16-4a4 4 0 01-4 4"/></svg></div><h2 class="res-h2">${R[0].name} Wins</h2><div class="res-sub">VMC Consulting · Sustainable Supplier Exchange · ${G.mr}-Round Simulation</div></div>
     <div class="slabel">Leaderboard</div><div class="lb">${lbs}</div>
     <div class="slabel">Portfolio Breakdowns</div><div class="bd-grid">${bds}</div>
-    <div class="slabel">Methodology</div><div class="guide-box"><h3>Sustainability Multiplier Index</h3>${guide}</div>
-    <div style="text-align:center;margin-top:48px"><button class="btn btn-gold btn-lg" onclick="location.reload()">🔄 Play Again</button></div>`;
-
-  // Animate final scores after render
-  setTimeout(()=>{
-    document.querySelectorAll('.lbc-fv').forEach((el,i)=>{
-      animateValue(el,0,R[i].fin,1200);
-      setTimeout(()=>el.textContent=R[i].fin.toLocaleString()+' PC',1300);
-    });
-  },600);
+    <div class="slabel">Methodology</div><div class="guide-box"><h3>VMC Sustainability Multiplier Index</h3><p style="font-size:12px;color:rgba(255,255,255,.4);margin-bottom:16px;font-weight:300">Portfolio value adjusted by weighted average sustainability score of holdings</p>${guide}</div>
+    <div class="vmc-footer"><div class="vmc-footer-logo"><span class="vmc-f-mark">VMC</span> <span class="vmc-f-tag">Consulting Services</span></div><br>The Sustainable Supplier Exchange · Procurement Simulation Platform<br>Designed to demonstrate how ESG-driven procurement creates long-term resilience and value.</div>
+    <div style="text-align:center;margin-top:24px"><button class="btn btn-gold btn-lg" onclick="location.reload()">↻ Play Again</button></div>`;
+  setTimeout(()=>{document.querySelectorAll('.lbc-fv').forEach((el,i)=>{animVal(el,0,R[i].fin,1200);setTimeout(()=>el.textContent=R[i].fin.toLocaleString()+' PC',1300)})},600);
 }
 
 // ═══════════════════════════════════════
@@ -821,34 +885,13 @@ function launchConfetti(){
   const cv=document.getElementById('confetti');const ctx=cv.getContext('2d');
   const dpr=devicePixelRatio||1;cv.width=innerWidth*dpr;cv.height=innerHeight*dpr;
   cv.style.width=innerWidth+'px';cv.style.height=innerHeight+'px';ctx.scale(dpr,dpr);
-  const colors=['#00A87E','#1A6BF0','#B8941F','#D62839','#7C3AED','#EC4899','#14B8A6','#F59E0B'];
-  const pieces=Array.from({length:200},()=>({
-    x:Math.random()*innerWidth,y:Math.random()*-innerHeight*1.5,
-    w:4+Math.random()*8,h:3+Math.random()*5,
-    color:colors[Math.floor(Math.random()*colors.length)],
-    vy:2+Math.random()*3,vx:(Math.random()-.5)*2.5,
-    rot:Math.random()*360,rv:(Math.random()-.5)*10,op:1
-  }));
-  let f=0;
-  function anim(){
-    f++;ctx.clearRect(0,0,innerWidth,innerHeight);let alive=false;
-    pieces.forEach(p=>{p.y+=p.vy;p.x+=p.vx;p.rot+=p.rv;if(f>150)p.op=Math.max(0,p.op-.012);if(p.op<=0)return;alive=true;
-      ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot*Math.PI/180);ctx.globalAlpha=p.op;ctx.fillStyle=p.color;ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore();
-    });
-    if(alive)requestAnimationFrame(anim);else ctx.clearRect(0,0,innerWidth,innerHeight);
-  }
-  anim();
+  const colors=['#3DD8C0','#1A6BF0','#B8941F','#D62839','#7C3AED','#EC4899','#14B8A6','#F59E0B','#4CE8D0'];
+  const pcs=Array.from({length:200},()=>({x:Math.random()*innerWidth,y:Math.random()*-innerHeight*1.5,w:4+Math.random()*8,h:3+Math.random()*5,color:colors[Math.floor(Math.random()*colors.length)],vy:2+Math.random()*3,vx:(Math.random()-.5)*2.5,rot:Math.random()*360,rv:(Math.random()-.5)*10,op:1}));
+  let f=0;function anim(){f++;ctx.clearRect(0,0,innerWidth,innerHeight);let alive=false;pcs.forEach(p=>{p.y+=p.vy;p.x+=p.vx;p.rot+=p.rv;if(f>150)p.op=Math.max(0,p.op-.012);if(p.op<=0)return;alive=true;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot*Math.PI/180);ctx.globalAlpha=p.op;ctx.fillStyle=p.color;ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore()});if(alive)requestAnimationFrame(anim);else ctx.clearRect(0,0,innerWidth,innerHeight)}anim();
 }
 
-// ═══════════════════════════════════════
-// TOAST
-// ═══════════════════════════════════════
-function toast(msg,type='i'){
-  const c=document.getElementById('toastC');const t=document.createElement('div');
-  const icons={s:'✓',e:'✕',i:'ℹ'};const cls={s:'toast-s',e:'toast-e',i:'toast-i'};
-  t.className=`toast ${cls[type]||'toast-i'}`;t.innerHTML=`<span class="t-icon">${icons[type]||'ℹ'}</span>${msg}`;
-  c.appendChild(t);setTimeout(()=>t.remove(),3000);
-}
+// Toast
+function toast(msg,type='i'){const c=document.getElementById('toastC');const t=document.createElement('div');const icons={s:'✓',e:'✕',i:'ℹ'};const cls={s:'toast-s',e:'toast-e',i:'toast-i'};t.className=`toast ${cls[type]||'toast-i'}`;t.innerHTML=`<span class="t-icon">${icons[type]||'ℹ'}</span>${msg}`;c.appendChild(t);setTimeout(()=>t.remove(),3000)}
 </script>
 </body>
 </html>
